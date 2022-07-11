@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorComponent /> should render 1`] = `
+.c0 {
+  width: 100%;
+  min-height: 80vh;
+  background-color: #222831;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.c1 {
+  color: #00ADB5;
+  font-size: 32px;
+  text-transform: none;
+}
+
+.c2 {
+  color: #EEEEEE;
+  font-size: 24px;
+  margin: 16px 0;
+  max-width: 500px;
+  text-transform: none;
+  font-size: 16px;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <h4
+      class="c1"
+    >
+      errorCode 404
+    </h4>
+    <p
+      class="c2"
+    >
+      Not Found
+    </p>
+  </div>
+</div>
+`;

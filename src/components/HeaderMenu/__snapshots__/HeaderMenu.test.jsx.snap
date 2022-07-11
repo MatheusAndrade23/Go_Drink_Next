@@ -1,0 +1,402 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeaderMenu /> should render 1`] = `
+.c0 {
+  width: 100%;
+  border-bottom: 2px solid #EEEEEE;
+  background-color: #393E46;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c0 div.rec-carousel-wrapper {
+  padding: 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0 button.rec-arrow {
+  background-color: #EEEEEE !important;
+  color: #222831 !important;
+  display: none;
+}
+
+.c0 button.rec-arrow:disabled {
+  visibility: hidden;
+}
+
+.c0 button.rec-arrow:hover {
+  background-color: #00ADB5 !important;
+}
+
+.c0 button.rec-dot.rec-dot_active {
+  background-color: #00ADB5 !important;
+  box-shadow: 0 0 1px 3px #00ADB5 !important;
+}
+
+.c0 button.rec-dot:focus {
+  background-color: #00ADB5 !important;
+  box-shadow: 0 0 1px 3px #00ADB5 !important;
+}
+
+.c0 button.rec-dot:hover {
+  box-shadow: 0 0 1px 3px #00ADB5 !important;
+}
+
+.c3 {
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 1.6em;
+  background-color: rgba(103,58,183,0.1);
+  color: #999;
+  box-shadow: 0 0 2px 0px #333;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  line-height: 50px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.c3:hover:enabled,
+.c3:focus:enabled {
+  color: #fff;
+  background-color: rgba(103,58,183,1);
+  box-shadow: 0 0 2px 0 #333;
+}
+
+.c3:disabled {
+  cursor: not-allowed;
+}
+
+.c8 {
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 1.6em;
+  background-color: rgba(103,58,183,0.1);
+  color: #333;
+  box-shadow: 0 0 2px 0px #333;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  line-height: 50px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.c8:hover:enabled,
+.c8:focus:enabled {
+  color: #fff;
+  background-color: rgba(103,58,183,1);
+  box-shadow: 0 0 2px 0 #333;
+}
+
+.c8:disabled {
+  cursor: not-allowed;
+}
+
+.c6 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c4 {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.c5 {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin: 0 0px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  direction: ltr;
+}
+
+.c7 {
+  text-transform: none;
+  font-size: 16px;
+  color: #EEEEEE;
+  padding: 8px;
+  border: 1px solid #393E46;
+  text-align: center;
+}
+
+.c7:hover {
+  border: 1px solid #EEEEEE;
+}
+
+@media (max-width:420px) {
+  .c0 div.rec-carousel-wrapper {
+    padding: 10px;
+  }
+}
+
+@media (max-width:1140px) {
+  .c0 button.rec-arrow {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+<div>
+  <ul
+    class="c0"
+  >
+    <div
+      class="c1 rec rec-carousel-wrapper "
+    >
+      <div
+        class="c2 rec rec-carousel"
+        style="height: 0px;"
+      >
+        <button
+          class="c3 rec rec-arrow rec rec-arrow-left"
+          disabled=""
+          tabindex="0"
+          type="button"
+        >
+          ❮
+        </button>
+        <div
+          class="c4 rec rec-slider-container"
+        >
+          <div
+            class="c5 rec rec-slider"
+            style="transition: all 500ms ease; left: 0px;"
+          >
+            <div
+              class="rec rec-swipable"
+              style="display: flex; flex-direction: row;"
+            >
+              <div
+                class="rec rec-carousel-item rec-carousel-item-0 rec-carousel-item-visible"
+              >
+                <div
+                  class="c6 rec rec-item-wrapper"
+                  id="0"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c7"
+                    href="/favorites"
+                  >
+                    headerLinkFavorites
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-1 rec-carousel-item-hidden rec-carousel-item-next"
+              >
+                <div
+                  class="c6 rec rec-item-wrapper"
+                  id="1"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c7"
+                    href="/kind/a/alcoholic"
+                  >
+                    headerLinkAlcoholic
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-2 rec-carousel-item-hidden"
+              >
+                <div
+                  class="c6 rec rec-item-wrapper"
+                  id="2"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c7"
+                    href="/kind/a/non_alcoholic"
+                  >
+                    headerLinkNAlcoholic
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-3 rec-carousel-item-hidden"
+              >
+                <div
+                  class="c6 rec rec-item-wrapper"
+                  id="3"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c7"
+                    href="/kind/a/optional_alcohol"
+                  >
+                    headerLinkOAlcoholic
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-4 rec-carousel-item-hidden"
+              >
+                <div
+                  class="c6 rec rec-item-wrapper"
+                  id="4"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c7"
+                    href="/all-drinks"
+                  >
+                    headerLinkADrinks
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-5 rec-carousel-item-hidden"
+              >
+                <div
+                  class="c6 rec rec-item-wrapper"
+                  id="5"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c7"
+                    href="/list/ingredients"
+                  >
+                    headerLinkAIngredients
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-6 rec-carousel-item-hidden"
+              >
+                <div
+                  class="c6 rec rec-item-wrapper"
+                  id="6"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c7"
+                    href="/list/categories"
+                  >
+                    headerLinkACategories
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-7 rec-carousel-item-hidden"
+              >
+                <div
+                  class="c6 rec rec-item-wrapper"
+                  id="7"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c7"
+                    href="/list/glasses"
+                  >
+                    headerLinkAGlasses
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="c8 rec rec-arrow rec rec-arrow-right"
+          tabindex="0"
+          type="button"
+        >
+          ❯
+        </button>
+      </div>
+    </div>
+  </ul>
+</div>
+`;

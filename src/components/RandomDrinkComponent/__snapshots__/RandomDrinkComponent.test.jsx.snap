@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RandomDrinkComponent /> should render 1`] = `
+.c1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50vh;
+  width: 100%;
+  z-index: 100;
+  background-color: transparent;
+}
+
+.c1:before,
+.c1:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  border-width: 0.5rem;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: 50%;
+}
+
+.c1:after {
+  width: 6rem;
+  height: 6rem;
+  border-left: 0.5rem solid #00ADB5;
+  border-top: 0.5rem solid #00ADB5;
+  -webkit-animation: cfKagt 600ms linear infinite;
+  animation: cfKagt 600ms linear infinite;
+}
+
+.c1:before {
+  width: 2rem;
+  height: 2rem;
+  border-left: 0.5rem solid #00ADB5;
+  border-top: 0.5rem solid #00ADB5;
+  -webkit-animation: cfKagt 1s linear reverse infinite;
+  animation: cfKagt 1s linear reverse infinite;
+}
+
+.c0 {
+  margin: 10px 0;
+  cursor: pointer;
+  height: 340px;
+  width: 310px;
+  border: 2px solid #393E46;
+  border-radius: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 h6 {
+  height: 35px;
+  margin-left: 22px;
+  width: 260px;
+  overflow: hidden;
+  margin-top: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 img {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-top: 20px;
+  width: 260px;
+  border: 2px solid #EEEEEE;
+}
+
+.c0:hover {
+  box-shadow: 1px 0px 12px 0px rgba(255,255,255,0.64);
+}
+
+@media (max-width:340px) {
+  .c0 {
+    height: 290px;
+    width: 260px;
+  }
+
+  .c0 h6 {
+    width: 210px;
+  }
+
+  .c0 img {
+    width: 210px;
+  }
+}
+
+@media (max-width:270px) {
+  .c0 {
+    height: 260px;
+    width: 230px;
+  }
+
+  .c0 h6 {
+    width: 180px;
+  }
+
+  .c0 img {
+    width: 180px;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <span
+      class="c1"
+    />
+  </div>
+</div>
+`;

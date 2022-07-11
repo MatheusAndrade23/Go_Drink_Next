@@ -9,9 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "flag-icons": "^6.4.5",
+    "jest-styled-components": "^7.0.8",
+    "msw": "^0.39.2",
     "next": "12.2.2",
+    "next-i18next": "^11.0.0",
+    "prettier": "^2.6.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-elastic-carousel": "^0.11.5",
+    "react-icons": "^4.4.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "eslint": "8.19.0",

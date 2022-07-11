@@ -1,0 +1,340 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> should render 1`] = `
+.c0 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #222831;
+  border-top: 2px solid #EEEEEE;
+  padding: 16px;
+  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+}
+
+.c0 a {
+  margin: 0;
+}
+
+.c0 p {
+  margin: 8px 16px;
+}
+
+.c6 {
+  position: absolute;
+  color: #EEEEEE;
+  right: 30px;
+  top: -12px;
+  font-size: 40px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  width: 170px;
+}
+
+.c5 {
+  font-family: 'Montserrat',sans-serif;
+  color: #00ADB5;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.c4 {
+  color: #EEEEEE;
+}
+
+.c4 svg {
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.c2 {
+  text-transform: none;
+  font-size: 16px;
+  margin: 16px 8px;
+  color: #00ADB5;
+  text-align: center;
+}
+
+.c2:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c1 {
+  color: #EEEEEE;
+  font-size: 24px;
+  margin: 16px 0;
+  max-width: 500px;
+  text-transform: none;
+  font-size: 16px;
+}
+
+.c9 {
+  position: fixed;
+  background-color: #EEEEEE;
+  color: #222831;
+  bottom: 10px;
+  right: 20px;
+  z-index: 6;
+  opacity: 0.5;
+  cursor: pointer;
+  font-weight: bold;
+  height: 30px;
+  width: 200px;
+  border: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.c7 {
+  position: fixed;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center !important;
+  -webkit-justify-content: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #EEEEEE;
+  bottom: 35px;
+  right: 20px;
+  z-index: 6;
+  padding: 4px 0;
+  font-weight: bold;
+}
+
+.c7 p {
+  opacity: 0.5;
+  margin-right: 10px;
+}
+
+.c8 {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  margin-left: 5px;
+  opacity: 0.5;
+}
+
+.c8 span {
+  font-size: 20px;
+}
+
+<div>
+  <footer
+    class="c0"
+  >
+    <p
+      class="c1"
+    >
+      cocktailDbCredits 
+      <a
+        class="c2"
+        href="https://www.thecocktaildb.com"
+      >
+        TheCocktailDB.
+      </a>
+    </p>
+    <p
+      class="c1"
+    >
+      githubInvite 
+      <a
+        class="c2"
+        href="https://github.com/MatheusAndrade23/Go_Drink"
+      >
+        GitHub.
+      </a>
+    </p>
+    <div
+      class="c3"
+    >
+      <a
+        class="c4"
+        href="https://www.linkedin.com/in/matheus-andrade23/"
+        title="Linkedin"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M847.7 112H176.3c-35.5 0-64.3 28.8-64.3 64.3v671.4c0 35.5 28.8 64.3 64.3 64.3h671.4c35.5 0 64.3-28.8 64.3-64.3V176.3c0-35.5-28.8-64.3-64.3-64.3zm0 736c-447.8-.1-671.7-.2-671.7-.3.1-447.8.2-671.7.3-671.7 447.8.1 671.7.2 671.7.3-.1 447.8-.2 671.7-.3 671.7zM230.6 411.9h118.7v381.8H230.6zm59.4-52.2c37.9 0 68.8-30.8 68.8-68.8a68.8 68.8 0 1 0-137.6 0c-.1 38 30.7 68.8 68.8 68.8zm252.3 245.1c0-49.8 9.5-98 71.2-98 60.8 0 61.7 56.9 61.7 101.2v185.7h118.6V584.3c0-102.8-22.2-181.9-142.3-181.9-57.7 0-96.4 31.7-112.3 61.7h-1.6v-52.2H423.7v381.8h118.6V604.8z"
+          />
+        </svg>
+      </a>
+      <a
+        class="c4"
+        href="https://github.com/MatheusAndrade23"
+        title="GitHub"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0 1 38.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"
+          />
+        </svg>
+      </a>
+      <a
+        class="c4"
+        href="https://programathor.com.br/users/131799"
+        title="ProgramaThor"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M266.033 32.42l-85.238 85.238v19.799L285.832 32.42h-19.799zm41.528 3.728L184.523 159.186l168.291 168.29L475.852 204.44 307.56 36.15zm172.02 190.02L374.542 331.205h19.799l85.238-85.238v-19.799zm-239.903 13.627l-9.9 9.9 32.527 32.528 9.9-9.9-32.527-32.528zm-22.627 22.627l-23.528 23.527h47.055l-23.527-23.527zm-41.528 41.527l-27.255 27.256h65.054l27.256-27.256h-65.055zm-45.255 45.256l-27.254 27.254h65.054l27.254-27.254h-65.054zm-27.254 45.254l23.527 23.527 23.527-23.527h-47.054zm-21.729 3.728l-9.898 9.899 32.527 32.527 9.898-9.898-32.527-32.527zm-38.767 18.899l-7.504 22.512 37.388 37.388 22.512-7.504v-12.414L54.93 417.086H42.518z"
+          />
+        </svg>
+      </a>
+      <a
+        class="c4"
+        href="http://localhost:5000"
+        title="Api"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <desc />
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+            stroke="none"
+          />
+          <path
+            d="M4 13h5"
+          />
+          <path
+            d="M12 16v-8h3a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-3"
+          />
+          <path
+            d="M20 8v8"
+          />
+          <path
+            d="M9 16v-5.5a2.5 2.5 0 0 0 -5 0v5.5"
+          />
+        </svg>
+      </a>
+    </div>
+    <p
+      class="c5"
+    >
+      GODRINK © 
+      <span
+        class="fi fi-br fis"
+      />
+    </p>
+    <a
+      class="c6"
+      href="#"
+      title="goTopTitle"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 16 16"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"
+        />
+      </svg>
+    </a>
+    <div
+      class="c7"
+    >
+      <p>
+        language
+      </p>
+      <button
+        class="c8"
+        name="Português"
+        title="Português"
+      >
+        <span
+          class="fi fi-br fis"
+        />
+      </button>
+      <button
+        class="c8"
+        name="English"
+        title="English"
+      >
+        <span
+          class="fi fi-us fis"
+        />
+      </button>
+    </div>
+    <button
+      class="c9"
+      title="lightTheme"
+    >
+      lightTheme
+    </button>
+  </footer>
+</div>
+`;

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InputComponent /> should render 1`] = `
+.c0 {
+  width: 300px;
+  outline: none;
+  padding: 8px;
+  border: 1px solid #00ADB5;
+  border-radius: 8px;
+}
+
+<div>
+  <input
+    class="c0"
+    name="test"
+    placeholder="Something"
+    title="Something"
+    type="text"
+  />
+</div>
+`;

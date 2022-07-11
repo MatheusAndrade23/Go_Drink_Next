@@ -1,0 +1,673 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 16px;
+  background-color: #393E46;
+  border-bottom: 1px solid #00ADB5;
+  z-index: 200;
+}
+
+.c0 > a {
+  width: 100px;
+}
+
+.c2 {
+  color: #00ADB5;
+  font-weight: bold;
+  text-align: center;
+  font-size: 32px;
+}
+
+.c2 p {
+  font-family: 'Montserrat',sans-serif;
+}
+
+.c3 {
+  font-family: 'Montserrat',sans-serif;
+  display: none;
+}
+
+.c8 {
+  width: 100%;
+  border-bottom: 2px solid #EEEEEE;
+  background-color: #393E46;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c8 div.rec-carousel-wrapper {
+  padding: 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c8 button.rec-arrow {
+  background-color: #EEEEEE !important;
+  color: #222831 !important;
+  display: none;
+}
+
+.c8 button.rec-arrow:disabled {
+  visibility: hidden;
+}
+
+.c8 button.rec-arrow:hover {
+  background-color: #00ADB5 !important;
+}
+
+.c8 button.rec-dot.rec-dot_active {
+  background-color: #00ADB5 !important;
+  box-shadow: 0 0 1px 3px #00ADB5 !important;
+}
+
+.c8 button.rec-dot:focus {
+  background-color: #00ADB5 !important;
+  box-shadow: 0 0 1px 3px #00ADB5 !important;
+}
+
+.c8 button.rec-dot:hover {
+  box-shadow: 0 0 1px 3px #00ADB5 !important;
+}
+
+.c11 {
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 1.6em;
+  background-color: rgba(103,58,183,0.1);
+  color: #999;
+  box-shadow: 0 0 2px 0px #333;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  line-height: 50px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.c11:hover:enabled,
+.c11:focus:enabled {
+  color: #fff;
+  background-color: rgba(103,58,183,1);
+  box-shadow: 0 0 2px 0 #333;
+}
+
+.c11:disabled {
+  cursor: not-allowed;
+}
+
+.c16 {
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 1.6em;
+  background-color: rgba(103,58,183,0.1);
+  color: #333;
+  box-shadow: 0 0 2px 0px #333;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  line-height: 50px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.c16:hover:enabled,
+.c16:focus:enabled {
+  color: #fff;
+  background-color: rgba(103,58,183,1);
+  box-shadow: 0 0 2px 0 #333;
+}
+
+.c16:disabled {
+  cursor: not-allowed;
+}
+
+.c14 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c12 {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.c13 {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin: 0 0px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  direction: ltr;
+}
+
+.c7 {
+  text-transform: none;
+  font-size: 16px;
+  margin: 16px 8px;
+  color: #00ADB5;
+  text-align: center;
+}
+
+.c7:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c15 {
+  text-transform: none;
+  font-size: 16px;
+  color: #EEEEEE;
+  padding: 8px;
+  border: 1px solid #393E46;
+  text-align: center;
+}
+
+.c15:hover {
+  border: 1px solid #EEEEEE;
+}
+
+.c1 {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c4 {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c5 {
+  width: 300px;
+  outline: none;
+  padding: 8px;
+  border: 1px solid #00ADB5;
+  border-radius: 8px;
+}
+
+.c6 {
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  text-transform: none;
+  font-weight: bold;
+  font-size: 16px;
+  height: 40px;
+  width: 40px;
+  border: 2px solid #00ADB5;
+  color: #00ADB5;
+  background-color: transparent;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.c6:hover {
+  box-shadow: 0px 0px 8px 0px #00ADB5;
+}
+
+@media (max-width:560px) {
+  .c0 input {
+    width: 80%;
+  }
+}
+
+@media (max-width:420px) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c0 > a {
+    text-align: right;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+  }
+
+  .c0 div:first-child {
+    width: 100%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    margin-bottom: 5px;
+  }
+
+  .c0 div {
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+    width: 100%;
+  }
+}
+
+@media (max-width:270px) {
+  .c0 div:first-child p {
+    font-size: 24px;
+  }
+
+  .c0 button {
+    height: 35px;
+    width: 35px;
+  }
+
+  .c0 input {
+    padding: 5px;
+  }
+}
+
+@media (max-width:768px) {
+  .c2 p {
+    display: none;
+  }
+}
+
+@media (max-width:420px) {
+  .c2 p {
+    display: block;
+  }
+}
+
+@media (max-width:768px) {
+  .c3 {
+    min-width: 100px;
+    display: block;
+  }
+}
+
+@media (max-width:420px) {
+  .c3 {
+    display: none;
+  }
+}
+
+@media (max-width:420px) {
+  .c8 div.rec-carousel-wrapper {
+    padding: 10px;
+  }
+}
+
+@media (max-width:1140px) {
+  .c8 button.rec-arrow {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+<div>
+  <header
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <a
+        class="c2"
+        href="/"
+      >
+        <p>
+          GODRINK
+        </p>
+        <span
+          class="c3"
+        >
+          GD
+        </span>
+      </a>
+    </div>
+    <div
+      class="c4"
+    >
+      <input
+        class="c5"
+        name="search"
+        placeholder="searchPlaceholder"
+        title="searchPlaceholder"
+        type="text"
+      />
+      <button
+        class="c6"
+        title="searchButton"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+          />
+        </svg>
+      </button>
+    </div>
+    <a
+      class="c7"
+      href="/auth/signin"
+    >
+      loginSingIn
+    </a>
+  </header>
+  <ul
+    class="c8"
+  >
+    <div
+      class="c9 rec rec-carousel-wrapper "
+    >
+      <div
+        class="c10 rec rec-carousel"
+        style="height: 0px;"
+      >
+        <button
+          class="c11 rec rec-arrow rec rec-arrow-left"
+          disabled=""
+          tabindex="0"
+          type="button"
+        >
+          ❮
+        </button>
+        <div
+          class="c12 rec rec-slider-container"
+        >
+          <div
+            class="c13 rec rec-slider"
+            style="transition: all 500ms ease; left: 0px;"
+          >
+            <div
+              class="rec rec-swipable"
+              style="display: flex; flex-direction: row;"
+            >
+              <div
+                class="rec rec-carousel-item rec-carousel-item-0 rec-carousel-item-visible"
+              >
+                <div
+                  class="c14 rec rec-item-wrapper"
+                  id="0"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c15"
+                    href="/favorites"
+                  >
+                    headerLinkFavorites
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-1 rec-carousel-item-hidden rec-carousel-item-next"
+              >
+                <div
+                  class="c14 rec rec-item-wrapper"
+                  id="1"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c15"
+                    href="/kind/a/alcoholic"
+                  >
+                    headerLinkAlcoholic
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-2 rec-carousel-item-hidden"
+              >
+                <div
+                  class="c14 rec rec-item-wrapper"
+                  id="2"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c15"
+                    href="/kind/a/non_alcoholic"
+                  >
+                    headerLinkNAlcoholic
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-3 rec-carousel-item-hidden"
+              >
+                <div
+                  class="c14 rec rec-item-wrapper"
+                  id="3"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c15"
+                    href="/kind/a/optional_alcohol"
+                  >
+                    headerLinkOAlcoholic
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-4 rec-carousel-item-hidden"
+              >
+                <div
+                  class="c14 rec rec-item-wrapper"
+                  id="4"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c15"
+                    href="/all-drinks"
+                  >
+                    headerLinkADrinks
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-5 rec-carousel-item-hidden"
+              >
+                <div
+                  class="c14 rec rec-item-wrapper"
+                  id="5"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c15"
+                    href="/list/ingredients"
+                  >
+                    headerLinkAIngredients
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-6 rec-carousel-item-hidden"
+              >
+                <div
+                  class="c14 rec rec-item-wrapper"
+                  id="6"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c15"
+                    href="/list/categories"
+                  >
+                    headerLinkACategories
+                  </a>
+                </div>
+              </div>
+              <div
+                class="rec rec-carousel-item rec-carousel-item-7 rec-carousel-item-hidden"
+              >
+                <div
+                  class="c14 rec rec-item-wrapper"
+                  id="7"
+                  style="width: 0px; padding: 0px 0px 0px 0px;"
+                >
+                  <a
+                    class="c15"
+                    href="/list/glasses"
+                  >
+                    headerLinkAGlasses
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="c16 rec rec-arrow rec rec-arrow-right"
+          tabindex="0"
+          type="button"
+        >
+          ❯
+        </button>
+      </div>
+    </div>
+  </ul>
+</div>
+`;

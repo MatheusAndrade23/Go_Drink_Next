@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ThemeSwitcher /> should render 1`] = `
+.c0 {
+  position: fixed;
+  background-color: #EEEEEE;
+  color: #222831;
+  bottom: 10px;
+  right: 20px;
+  z-index: 6;
+  opacity: 0.5;
+  cursor: pointer;
+  font-weight: bold;
+  height: 30px;
+  width: 200px;
+  border: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+<div>
+  <button
+    class="c0"
+    title="lightTheme"
+  >
+    lightTheme
+  </button>
+</div>
+`;

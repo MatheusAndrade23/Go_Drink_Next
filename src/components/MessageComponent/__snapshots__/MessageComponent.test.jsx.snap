@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MessageComponent /> should render 1`] = `
+.c0 {
+  position: fixed;
+  background-color: #222831;
+  padding: 40px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 350px;
+  text-align: center;
+  z-index: 300;
+  border: 2px solid #EEEEEE;
+  border-radius: 10px;
+  top: 70px;
+  right: 70px;
+}
+
+.c0 p {
+  color: #00ADB5;
+  font-weight: bold;
+  font-family: 'Montserrat',sans-serif;
+}
+
+@media (max-width:560px) {
+  .c0 {
+    right: 20px;
+    left: 20px;
+    width: auto;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <p>
+      Wrong Password
+    </p>
+  </div>
+</div>
+`;
