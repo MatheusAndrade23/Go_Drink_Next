@@ -15,7 +15,7 @@ import { RandomDrinkComponent } from "../../components/RandomDrinkComponent";
 import config from "../../config";
 import popularDrinks from "./popular-drinks.js";
 
-export const Home = () => {
+export const Home = (props) => {
   const { t } = useTranslation("common");
 
   return (
