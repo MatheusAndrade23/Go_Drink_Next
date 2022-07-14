@@ -27,10 +27,6 @@ export const ForgotPassword = () => {
     forgotPassword(email);
   };
 
-  useEffect(() => {
-    document.title = `${t('forgotPassword')} | ${config.siteName}`;
-  }, [t]);
-
   return (
     <Styled.Container>
       <Styled.Login>
