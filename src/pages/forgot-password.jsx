@@ -1,18 +1,20 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 
 import Head from 'next/head';
 
-import { Home } from '../templates/Home';
+import { ForgotPassword } from '../templates/ForgotPassword';
 
 import config from '../config';
 
-export default function HomePage() {
+export default function ForgotPasswordTemplate() {
+  const { t } = useTranslation();
   return (
     <>
       <Head>
-        <title>{config.siteName}</title>
+        <title>{`${t('forgotPassword')} | ${config.siteName}`}</title>
       </Head>
-      <Home />
+      <ForgotPassword />
     </>
   );
 }
