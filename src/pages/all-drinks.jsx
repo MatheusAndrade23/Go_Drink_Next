@@ -19,7 +19,7 @@ export default function AllDrinksTemplate({ drinks }) {
         <Head>
           <title>{`${t('serverErrorTitle')} | ${config.siteName}`}</title>
         </Head>
-        <ErrorComponent />
+        <ErrorComponent message={t('serverErrorTitle')} />
       </>
     );
   }
@@ -34,7 +34,7 @@ export default function AllDrinksTemplate({ drinks }) {
   );
 }
 
-export async function getStaticProps({ locale }) {
+export const getStaticProps = async ({ locale }) => {
   let drinks = [];
   try {
     const resp = await db.get('/api/json/v1/1/filter.php?a=alcoholic');
@@ -55,4 +55,4 @@ export async function getStaticProps({ locale }) {
       drinks,
     },
   };
-}
+};

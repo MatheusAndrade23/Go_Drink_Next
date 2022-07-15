@@ -19,10 +19,10 @@ export default function ForgotPasswordTemplate() {
   );
 }
 
-export async function getStaticProps({ locale }) {
+export const getStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
     },
   };
-}
+};
