@@ -88,11 +88,13 @@ export const AuthProvider = ({ children }) => {
     window.location.href = '/auth/signin';
   };
 
-  const updateFavorites = async (id) => {
+  const updateFavorites = async (id, drink) => {
     setAuthLoading(true);
     if (!user.authenticated) {
       setMessage(t('notAuthenticated'));
     }
+
+    console.log(id, drink);
 
     try {
       await api.patch(`/drink/favorites/${user._id}`, {
@@ -120,11 +122,11 @@ export const AuthProvider = ({ children }) => {
       setAuthLoading(false);
     } catch (error) {
       setAuthLoading(false);
-      const err = error.response.data;
-      if (!err) {
+      // const err = error.response.data;
+      if (!error) {
         setMessage(t('error500message'));
       } else {
-        setMessage(err[language]);
+        setMessage(error[language]);
       }
     }
   };

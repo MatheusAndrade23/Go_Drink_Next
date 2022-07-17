@@ -10,13 +10,13 @@ import { ReturnButton } from '../../components/ReturnButton';
 export const PageNotFound = () => {
   const { t } = useTranslation();
   return (
-    <>
+    <main>
       <Header />
       <Styled.Container>
         <Heading as="h2">{t('pageNotFoundError')}</Heading>
         <TextComponent size="medium">{t('pageNotFound')}</TextComponent>
       </Styled.Container>
       <ReturnButton />
-    </>
+    </main>
   );
 };
