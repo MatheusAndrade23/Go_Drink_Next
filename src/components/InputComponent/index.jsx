@@ -7,6 +7,7 @@ export const InputComponent = ({
   name,
   text = '',
   placeholder,
+  reference,
 }) => {
   return (
     <>
@@ -17,6 +18,7 @@ export const InputComponent = ({
         type={type}
         placeholder={placeholder}
         title={placeholder}
+        ref={reference}
       />
     </>
   );

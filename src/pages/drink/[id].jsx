@@ -35,9 +35,8 @@ export default function Page404({ drink, ingredients }) {
   );
 }
 
-export const getServerSideProps = async (ctx) => {
-  const id = ctx.params.id;
-  const { locale } = ctx;
+export const getServerSideProps = async ({ locale, params }) => {
+  const { id } = params;
 
   let ingredients;
   let drink;
