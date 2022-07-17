@@ -3,11 +3,7 @@ import * as Styled from './styles';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect, useContext } from 'react';
 
-import { db, api } from '../../services/api';
-
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-
-import { IngredientsArray } from '../../utils/ingredients-array';
 
 import { AuthContext } from '../../providers/AuthProvider/index';
 

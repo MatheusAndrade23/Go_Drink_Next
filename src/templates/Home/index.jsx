@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import * as Styled from './styles';
 
 import { useTranslation } from 'next-i18next';
