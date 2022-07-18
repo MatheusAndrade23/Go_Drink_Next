@@ -1,7 +1,7 @@
 import * as Styled from './styles';
 
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 

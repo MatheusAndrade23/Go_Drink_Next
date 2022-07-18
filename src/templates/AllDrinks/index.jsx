@@ -6,7 +6,6 @@ import { Header } from '../../components/Header';
 import { Heading } from '../../components/Heading';
 import { ReturnButton } from '../../components/ReturnButton';
 import { DrinkComponent } from '../../components/DrinkComponent';
-import { ButtonComponent } from '../../components/ButtonComponent';
 
 import config from '../../config';
 
