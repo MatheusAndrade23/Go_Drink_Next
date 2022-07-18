@@ -70,5 +70,6 @@
   "mailBox": "Verifique sua caixa de email!",
   "forgotInfo": "Vamos te enviar um email com o link para mudar sua senha!",
   "weResetPassword": "Por favor, digite sua nova senha abaixo.",
-  "loading": "Carregando..."
+  "loading": "Carregando...",
+  "redirecting": "Redirecionando..."
 }

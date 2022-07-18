@@ -69,5 +69,6 @@
   "mailBox": "Check your mail box!",
   "forgotInfo": "We will send you an email with the link to change your password!",
   "weResetPassword": "Please enter your new password below.",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "redirecting": "Redirecting..."
 }

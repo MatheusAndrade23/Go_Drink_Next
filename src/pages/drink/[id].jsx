@@ -11,7 +11,7 @@ import { IngredientsArray } from '../../utils/ingredients-array';
 
 import config from '../../config';
 
-export default function Page404({ drink, ingredients }) {
+export default function DrinkPage({ drink, ingredients }) {
   const { t } = useTranslation();
 
   if (drink === false) {
