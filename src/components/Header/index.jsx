@@ -2,7 +2,6 @@ import * as Styled from './styles';
 
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect, useContext, useRef } from 'react';
-import { useParams } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 
 import { AuthContext } from '../../providers/AuthProvider/index';
