@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import * as Styled from './styles';
 
 import { useTranslation } from 'react-i18next';
@@ -32,7 +33,7 @@ export const Lists = ({ kinds, kind, images, type, name }) => {
   };
 
   return (
-    <>
+    <main>
       <Header />
       <Styled.KindsContainer>
         <Heading size="small" as="h4">
@@ -64,6 +65,6 @@ export const Lists = ({ kinds, kind, images, type, name }) => {
         </Styled.Container>
       </Styled.KindsContainer>
       <ReturnButton />
-    </>
+    </main>
   );
 };

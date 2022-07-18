@@ -1,8 +1,7 @@
 import * as Styled from './styles';
 
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useContext } from 'react';
 
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 
@@ -16,9 +15,8 @@ import { TextComponent } from '../../components/TextComponent';
 
 import config from '../../config';
 
-export const ResetPassword = () => {
+export const ResetPassword = ({ token, email }) => {
   const { resetPassword } = useContext(AuthContext);
-  const { token, email } = useParams();
   const { t } = useTranslation();
 
   const [showPassword, setShowPassword] = useState(null);
@@ -31,10 +29,6 @@ export const ResetPassword = () => {
   const setNewPassword = () => {
     resetPassword(email, token, password);
   };
-
-  useEffect(() => {
-    document.title = `${t('recPassword')} | ${config.siteName}`;
-  }, [t]);
 
   return (
     <Styled.Container>
