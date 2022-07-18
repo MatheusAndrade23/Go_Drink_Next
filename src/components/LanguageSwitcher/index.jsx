@@ -1,6 +1,8 @@
 import * as Styled from './styles';
+import cookie from 'react-cookies';
 
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 import flags from 'flag-icons';
 import { useEffect, useState } from 'react';
@@ -9,22 +11,13 @@ import { MessageComponent } from '../MessageComponent';
 export const LanguageSwitcher = () => {
   const [message, setMessage] = useState(null);
   const { t, i18n } = useTranslation();
-
-  useEffect(() => {
-    const recoveredLanguage = localStorage.getItem('language');
-
-    if (recoveredLanguage) {
-      i18n.changeLanguage(recoveredLanguage);
-    }
-  }, [i18n]);
+  const router = useRouter();
 
   const changeLanguage = (key) => {
+    cookie.save('NEXT_LOCALE', key);
     i18n.changeLanguage(key);
-    localStorage.setItem('language', key);
 
-    if (key == 'ptBr') {
-      setMessage('Nem tudo foi traduzido para português!');
-    }
+    router.push(router.asPath, router.asPath, { locale: key });
   };
   return (
     <>
