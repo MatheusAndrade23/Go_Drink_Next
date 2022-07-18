@@ -104,6 +104,14 @@ export const getStaticProps = async ({ locale, params }) => {
     images = await GetThumbImg(kind, kinds, type);
   }
 
+  if (kind === 'c') {
+    kinds = kinds.filter((kind) => {
+      !kind[type].includes('/');
+    });
+  }
+
+  console.log(kinds);
+
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
