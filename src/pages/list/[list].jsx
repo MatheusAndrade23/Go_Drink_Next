@@ -105,9 +105,7 @@ export const getStaticProps = async ({ locale, params }) => {
   }
 
   if (kind === 'c') {
-    kinds = kinds.filter((kind) => {
-      !kind[type].includes('/');
-    });
+    kinds = kinds.filter((list) => !list[type].includes('/'));
   }
 
   return {
