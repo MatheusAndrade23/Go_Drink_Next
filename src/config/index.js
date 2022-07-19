@@ -1,4 +1,4 @@
-export default {
+const config = {
   siteName: 'Go Drink',
   dbUrl: 'https://www.thecocktaildb.com',
   apiUrl: 'https://go-drink-backend.vercel.app/',
@@ -7,3 +7,5 @@ export default {
   programaThor: 'https://programathor.com.br/users/131799',
   repository: 'https://github.com/MatheusAndrade23/Go_Drink',
 };
+
+export default config;
