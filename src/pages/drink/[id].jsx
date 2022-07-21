@@ -1,5 +1,6 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import { NextSeo } from 'next-seo';
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -13,13 +14,23 @@ import config from '../../config';
 
 export default function DrinkPage({ drink, ingredients }) {
   const { t } = useTranslation();
+  const url = drink.strDrinkThumb;
+  const router = useRouter();
+  const title = `${drink.strDrink} | ${config.siteName}`;
 
   if (drink === false) {
+    const title = `${t('serverErrorTitle')} | ${config.siteName} `;
     return (
       <>
-        <Head>
-          <title>{`${t('serverErrorTitle')} | ${config.siteName} `}</title>
-        </Head>
+        <NextSeo
+          title={title}
+          description={`${title} - ${t('description')}`}
+          canonical={config.pageUrl + router.asPath}
+          openGraph={{
+            url,
+            title,
+          }}
+        />
         <ErrorComponent message={t('error500message')} />
       </>
     );
@@ -27,9 +38,15 @@ export default function DrinkPage({ drink, ingredients }) {
 
   return (
     <>
-      <Head>
-        <title>{`${drink.strDrink} | ${config.siteName}`}</title>
-      </Head>
+      <NextSeo
+        title={title}
+        description={`${title} - ${t('description')}`}
+        canonical={config.pageUrl + router.asPath}
+        openGraph={{
+          url,
+          title,
+        }}
+      />
       <Drink drink={drink} ingredients={ingredients} />
     </>
   );

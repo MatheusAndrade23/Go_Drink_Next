@@ -1,5 +1,6 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import { NextSeo } from 'next-seo';
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -13,13 +14,23 @@ import config from '../../config';
 
 export default function ListPage({ kinds, kind, type, images, name }) {
   const { t } = useTranslation();
+  const url = config.defaultImageUrl;
+  const router = useRouter();
+  const title = `${name} | ${config.siteName}`;
 
   if (kinds === false) {
+    const title = `${t('serverErrorTitle')} | ${config.siteName}`;
     return (
       <>
-        <Head>
-          <title>{`${t('serverErrorTitle')} | ${config.siteName}`}</title>
-        </Head>
+        <NextSeo
+          title={title}
+          description={`${title} - ${t('description')}`}
+          canonical={config.pageUrl + router.asPath}
+          openGraph={{
+            url,
+            title,
+          }}
+        />
         <ErrorComponent message={t('error500message')} />
       </>
     );
@@ -27,9 +38,15 @@ export default function ListPage({ kinds, kind, type, images, name }) {
 
   return (
     <>
-      <Head>
-        <title>{`${name} | ${config.siteName}`}</title>
-      </Head>
+      <NextSeo
+        title={title}
+        description={`${title} - ${t('description')}`}
+        canonical={config.pageUrl + router.asPath}
+        openGraph={{
+          url,
+          title,
+        }}
+      />
       <Lists
         kinds={kinds}
         kind={kind}

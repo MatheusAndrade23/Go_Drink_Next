@@ -43,16 +43,14 @@ export const Kinds = ({ drinks, index, kind }) => {
     <main>
       <Header />
       <Styled.Container>
-        <>
-          <Heading size="small" as="h4">
-            {getTemplateTitle(index, kind)}
-          </Heading>
-          <Styled.DrinksContainer>
-            {drinks.map((drink) => (
-              <DrinkComponent drink={drink} key={drink.idDrink} />
-            ))}
-          </Styled.DrinksContainer>
-        </>
+        <Heading size="small" as="h4">
+          {getTemplateTitle(index, kind)}
+        </Heading>
+        <Styled.DrinksContainer>
+          {drinks.map((drink) => (
+            <DrinkComponent drink={drink} key={drink.idDrink} />
+          ))}
+        </Styled.DrinksContainer>
       </Styled.Container>
       <ReturnButton />
     </main>

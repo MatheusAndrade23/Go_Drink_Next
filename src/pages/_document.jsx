@@ -39,6 +39,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link rel="shortcut icon" href="/favicon.svg" />
+          <meta httpEquiv="Content-Type" content="text/html" />
         </Head>
         <body>
           <Main />

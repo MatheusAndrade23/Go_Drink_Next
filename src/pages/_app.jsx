@@ -1,3 +1,5 @@
+import { DefaultSeo } from 'next-seo';
+import SEO from '../../next-seo-config';
 import { appWithTranslation } from 'next-i18next';
 
 import { ThemeProvider } from '../providers/ThemeProvider';
@@ -9,6 +11,7 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
       <AuthProvider>
+        <DefaultSeo {...SEO} />
         <Component {...pageProps} />
         <Footer />
       </AuthProvider>

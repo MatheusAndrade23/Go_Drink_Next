@@ -11,6 +11,7 @@ export default function Page404() {
     <>
       <Head>
         <title>{t('pageNotFound')}</title>
+        <meta name="description" content={t('description')} />
       </Head>
       <PageNotFound />
     </>

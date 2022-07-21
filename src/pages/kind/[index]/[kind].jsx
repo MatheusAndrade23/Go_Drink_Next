@@ -1,5 +1,6 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import { NextSeo } from 'next-seo';
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -13,13 +14,25 @@ import config from '../../../config';
 
 export default function ListPage({ drinks, index, kind }) {
   const { t } = useTranslation();
+  const url = config.defaultImageUrl;
+  const router = useRouter();
+  const title = `${`${kind.charAt(0).toUpperCase()}${kind
+    .slice(1)
+    .replace(/_/, ' ')}`} | ${config.siteName} `;
 
   if (drinks === false) {
+    const title = `${t('serverErrorTitle')} | ${config.siteName}`;
     return (
       <>
-        <Head>
-          <title>{`${t('serverErrorTitle')} | ${config.siteName}`}</title>
-        </Head>
+        <NextSeo
+          title={title}
+          description={`${title} - ${t('description')}`}
+          canonical={config.pageUrl + router.asPath}
+          openGraph={{
+            url,
+            title,
+          }}
+        />
         <ErrorComponent message={t('error500message')} />
       </>
     );
@@ -27,11 +40,15 @@ export default function ListPage({ drinks, index, kind }) {
 
   return (
     <>
-      <Head>
-        <title>{`${`${kind.charAt(0).toUpperCase()}${kind
-          .slice(1)
-          .replace(/_/, ' ')}`} | ${config.siteName} `}</title>
-      </Head>
+      <NextSeo
+        title={title}
+        description={`${title} - ${t('description')}`}
+        canonical={config.pageUrl + router.asPath}
+        openGraph={{
+          url,
+          title,
+        }}
+      />
       <Kinds drinks={drinks} index={index} kind={kind} />
     </>
   );

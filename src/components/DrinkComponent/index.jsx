@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import P from 'prop-types';
 import * as Styled from './styles';
 

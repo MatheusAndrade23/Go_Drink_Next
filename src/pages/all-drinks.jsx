@@ -1,5 +1,7 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 
 import Head from 'next/head';
 
@@ -12,13 +14,25 @@ import config from '../config';
 
 export default function AllDrinksTemplate({ drinks }) {
   const { t } = useTranslation();
+  const url = config.defaultImageUrl;
+  const router = useRouter();
+
+  const title = !drinks
+    ? `${t('serverErrorTitle')} | ${config.siteName}`
+    : `${t('headerLinkADrinks')} | ${config.siteName}`;
 
   if (!drinks) {
     return (
       <>
-        <Head>
-          <title>{`${t('serverErrorTitle')} | ${config.siteName}`}</title>
-        </Head>
+        <NextSeo
+          title={title}
+          description={`${title} - ${t('description')}`}
+          canonical={config.pageUrl + router.asPath}
+          openGraph={{
+            url,
+            title,
+          }}
+        />
         <ErrorComponent message={t('serverErrorTitle')} />
       </>
     );
@@ -26,9 +40,15 @@ export default function AllDrinksTemplate({ drinks }) {
 
   return (
     <>
-      <Head>
-        <title>{`${t('headerLinkADrinks')} | ${config.siteName}`}</title>
-      </Head>
+      <NextSeo
+        title={title}
+        description={`${t('headerLinkADrinks')} - ${t('description')}`}
+        canonical={config.pageUrl + router.asPath}
+        openGraph={{
+          url,
+          title,
+        }}
+      />
       <AllDrinks drinks={drinks} />
     </>
   );
