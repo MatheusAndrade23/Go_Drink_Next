@@ -13,12 +13,25 @@ export const LanguageSwitcher = () => {
   const { t, i18n } = useTranslation();
   const router = useRouter();
 
+  useEffect(() => {
+    const key = localStorage.getItem('lang');
+
+    console.log(key);
+
+    if (key == 'ptBr') {
+      cookie.save('NEXT_LOCALE', key);
+      router.push(router.asPath, router.asPath, { locale: key });
+    }
+  }, []);
+
   const changeLanguage = (key) => {
+    localStorage.setItem('lang', JSON.stringify(key));
     cookie.save('NEXT_LOCALE', key);
     i18n.changeLanguage(key);
 
     router.push(router.asPath, router.asPath, { locale: key });
   };
+
   return (
     <>
       {message && <MessageComponent message={message} hide={setMessage} />}
