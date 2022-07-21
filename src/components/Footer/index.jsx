@@ -46,7 +46,7 @@ export const Footer = () => {
       <Styled.GoTop href="#" title={t('goTopTitle')}>
         <BsFillArrowUpSquareFill />
       </Styled.GoTop>
-      <LanguageSwitcher />
+      {/* <LanguageSwitcher /> */}
       <ThemeSwitcher />
     </Styled.Footer>
   );
