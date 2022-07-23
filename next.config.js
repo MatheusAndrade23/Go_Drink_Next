@@ -5,6 +5,7 @@ const nextConfig = {
   i18n,
   reactStrictMode: true,
   swcMinify: true,
+  target: 'serverless',
   experimental: { nftTracing: true },
   compiler: {
     styledComponents: true,
