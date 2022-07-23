@@ -7,6 +7,9 @@ const nextConfig = {
   swcMinify: true,
   target: 'serverless',
   experimental: { nftTracing: true },
+  serverRuntimeConfig: {
+    PROJECT_ROOT: __dirname,
+  },
   compiler: {
     styledComponents: true,
   },
