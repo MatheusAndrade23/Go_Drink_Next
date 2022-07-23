@@ -6,9 +6,10 @@ import { ThemeSwitcherContext } from '../../providers/ThemeProvider';
 import { useTranslation } from 'react-i18next';
 
 export const ThemeSwitcher = () => {
-  const { t } = useTranslation();
   const { themeSwitcher, theme } = useContext(ThemeSwitcherContext);
-  const text = `${theme === 'dark' ? t('lightTheme') : t('darkTheme')}`;
+  const text = `${
+    theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+  }`;
 
   return (
     <Styled.Container onClick={themeSwitcher} title={text}>

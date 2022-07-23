@@ -4,10 +4,8 @@ import * as Styled from './styles';
 import { Heading } from '../Heading';
 import { TextComponent } from '../TextComponent';
 import { Header } from '../Header';
-import { useTranslation } from 'react-i18next';
 
 export const ErrorComponent = ({ code, message }) => {
-  const { t } = useTranslation();
   return (
     <main>
       <Header />
@@ -15,7 +13,7 @@ export const ErrorComponent = ({ code, message }) => {
         {code ? (
           <>
             <Heading as="h4" size="medium">
-              {`${t('errorCode')} ${code}`}
+              {`Error ${code}`}
             </Heading>
             <TextComponent>{message}</TextComponent>
           </>

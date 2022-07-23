@@ -1,6 +1,3 @@
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
-
 import Head from 'next/head';
 
 import { ForgotPassword } from '../templates/ForgotPassword';
@@ -12,17 +9,9 @@ export default function ForgotPasswordTemplate() {
   return (
     <>
       <Head>
-        <title>{`${t('forgotPassword')} | ${config.siteName}`}</title>
+        <title>{`Forgot my password | ${config.siteName}`}</title>
       </Head>
       <ForgotPassword />
     </>
   );
 }
-
-export const getStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  };
-};

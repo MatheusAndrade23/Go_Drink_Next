@@ -1,5 +1,3 @@
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
 
 import Head from 'next/head';
@@ -13,25 +11,24 @@ import { IngredientsArray } from '../../utils/ingredients-array';
 import config from '../../config';
 
 export default function DrinkPage({ drink, ingredients }) {
-  const { t } = useTranslation();
   const url = drink.strDrinkThumb;
   const router = useRouter();
   const title = `${drink.strDrink} | ${config.siteName}`;
 
   if (drink === false) {
-    const title = `${t('serverErrorTitle')} | ${config.siteName} `;
+    const title = `Server Error | ${config.siteName} `;
     return (
       <>
         <NextSeo
           title={title}
-          description={`${title} - ${t('description')}`}
+          description={`${title} - ${config.description}`}
           canonical={config.pageUrl + router.asPath}
           openGraph={{
             url,
             title,
           }}
         />
-        <ErrorComponent message={t('error500message')} />
+        <ErrorComponent message="Something went wrong, try again later!" />
       </>
     );
   }
@@ -40,7 +37,7 @@ export default function DrinkPage({ drink, ingredients }) {
     <>
       <NextSeo
         title={title}
-        description={`${title} - ${t('description')}`}
+        description={`${title} - ${config.description}`}
         canonical={config.pageUrl + router.asPath}
         openGraph={{
           url,
@@ -52,7 +49,7 @@ export default function DrinkPage({ drink, ingredients }) {
   );
 }
 
-export const getServerSideProps = async ({ locale, params }) => {
+export const getServerSideProps = async ({ params }) => {
   const { id } = params;
 
   let ingredients;
@@ -80,7 +77,6 @@ export const getServerSideProps = async ({ locale, params }) => {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
       drink,
       ingredients,
     },

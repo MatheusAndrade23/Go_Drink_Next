@@ -1,6 +1,5 @@
 import * as Styled from './styles';
 
-import { useTranslation } from 'react-i18next';
 import { useState, useEffect, useContext } from 'react';
 
 import { AuthContext } from '../../providers/AuthProvider/index';
@@ -15,7 +14,6 @@ import config from '../../config';
 
 export const ForgotPassword = () => {
   const { forgotPassword } = useContext(AuthContext);
-  const { t } = useTranslation();
 
   const [email, setEmail] = useState('');
 
@@ -33,16 +31,18 @@ export const ForgotPassword = () => {
         <Heading size="medium" as="h4">
           GODRINK
         </Heading>
-        <TextComponent>{t('forgotInfo')}</TextComponent>
+        <TextComponent>
+          We will send you an email with the link to change your password!
+        </TextComponent>
         <InputComponent
-          text={`${t('email')}:`}
-          placeholder={t('typeEmail')}
+          text="Email:"
+          placeholder="Type your email here..."
           name="email"
           type="email"
           handleChange={handleGetInfo}
         />
         <ButtonComponent bold={false} handleSubmit={sendMail}>
-          {t('sendMail')}
+          Send Email
         </ButtonComponent>
       </Styled.Login>
       <ReturnButton />

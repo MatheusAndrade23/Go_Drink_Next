@@ -1,6 +1,5 @@
 import { DefaultSeo } from 'next-seo';
 import SEO from '../../next-seo-config';
-import { appWithTranslation } from 'next-i18next';
 
 import { ThemeProvider } from '../providers/ThemeProvider';
 import { AuthProvider } from '../providers/AuthProvider';
@@ -19,4 +18,4 @@ const MyApp = ({ Component, pageProps }) => {
   );
 };
 
-export default appWithTranslation(MyApp);
+export default MyApp;

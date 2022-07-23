@@ -1,6 +1,5 @@
 import * as Styled from './styles';
 
-import { useTranslation } from 'react-i18next';
 import { useState, useEffect, useContext, useRef } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
@@ -17,7 +16,6 @@ import { MessageComponent } from '../MessageComponent';
 export const Header = ({ search }) => {
   const input_container = useRef(null);
   const { user } = useContext(AuthContext);
-  const { t } = useTranslation();
 
   const [url, setUrl] = useState('');
   const [message, setMessage] = useState(null);
@@ -30,7 +28,7 @@ export const Header = ({ search }) => {
     if (url) {
       window.location.href = `/search/${url}`;
     } else {
-      setMessage(t('emptySearchMessage'));
+      setMessage('Please type something to search!');
     }
   };
 
@@ -40,24 +38,6 @@ export const Header = ({ search }) => {
       setUrl(search);
     }
   }, [search]);
-
-  useEffect(() => {
-    const enterPressed = (e) => {
-      if (e.key === 'Enter' && url) {
-        window.location.href = `/search/${url}`;
-      } else if (url.length < 0) {
-        setMessage(t('emptySearchMessage'));
-      }
-    };
-
-    window.addEventListener('keydown', (e) => {
-      enterPressed(e);
-    });
-
-    return () => {
-      window.removeEventListener('keydown', () => {});
-    };
-  }, [search, t, url]);
 
   return (
     <>
@@ -69,24 +49,22 @@ export const Header = ({ search }) => {
           <InputComponent
             type="text"
             handleChange={SearchInput}
-            placeholder={t('searchPlaceholder')}
+            placeholder="Type your search here..."
             name="search"
             reference={input_container}
           />
           <ButtonComponent
             handleSubmit={SearchSubmit}
             model="icon"
-            name={t('searchButton')}
+            name="Click to search"
           >
             <FaSearch />
           </ButtonComponent>
         </SmallContainer>
         {user.authenticated ? (
-          <LinkComponent link="/auth/signout">
-            {t('loginSingOut')}
-          </LinkComponent>
+          <LinkComponent link="/auth/signout">Sign Out</LinkComponent>
         ) : (
-          <LinkComponent link="/auth/signin">{t('loginSingIn')}</LinkComponent>
+          <LinkComponent link="/auth/signin">Sign In</LinkComponent>
         )}
       </Styled.Header>
       <HeaderMenu />

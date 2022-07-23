@@ -10,7 +10,6 @@ import { AiOutlineLinkedin, AiOutlineGithub } from 'react-icons/ai';
 import { LinkComponent } from '../LinkComponent';
 import { TextComponent } from '../TextComponent';
 import { ThemeSwitcher } from '../ThemeSwitcher';
-import { LanguageSwitcher } from '../../components/LanguageSwitcher';
 
 import config from '../../config';
 
@@ -19,11 +18,11 @@ export const Footer = () => {
   return (
     <Styled.Footer>
       <TextComponent>
-        {`${t('cocktailDbCredits')} ${''}`}
+        {`This website uses ${''}`}
         <LinkComponent link={config.dbUrl}>TheCocktailDB.</LinkComponent>
       </TextComponent>
       <TextComponent>
-        {`${t('githubInvite')} ${''}`}
+        {`If you like the site, please consider giving a star on ${''}`}
         <LinkComponent link={config.repository}>GitHub.</LinkComponent>
       </TextComponent>
       <Styled.Icons disposition="row">
@@ -43,10 +42,9 @@ export const Footer = () => {
       <Styled.FooterLogo>
         GODRINK © <span className="fi fi-br fis"></span>
       </Styled.FooterLogo>
-      <Styled.GoTop href="#" title={t('goTopTitle')}>
+      <Styled.GoTop href="#" title="Go Top">
         <BsFillArrowUpSquareFill />
       </Styled.GoTop>
-      {/* <LanguageSwitcher /> */}
       <ThemeSwitcher />
     </Styled.Footer>
   );

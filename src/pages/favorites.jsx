@@ -1,6 +1,3 @@
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
-
 import Head from 'next/head';
 
 import { useContext } from 'react';
@@ -16,15 +13,14 @@ import config from '../config';
 export default function MyFavorites() {
   const { user } = useContext(AuthContext);
   const { authenticated, favorites, favoritesInfo } = user;
-  const { t } = useTranslation();
 
   if (!authenticated) {
     return (
       <>
         <Head>
-          <title>{`${t('headerLinkFavorites')} | ${config.siteName}`}</title>
+          <title>{`My Favorites | ${config.siteName}`}</title>
         </Head>
-        <ErrorComponent message={t('createAFavorites')} />
+        <ErrorComponent message="Please create an account or log in before having a list of favorite drinks!" />
       </>
     );
   }
@@ -33,9 +29,9 @@ export default function MyFavorites() {
     return (
       <>
         <Head>
-          <title>{`${t('headerLinkFavorites')} | ${config.siteName}`}</title>
+          <title>{`My Favorites | ${config.siteName}`}</title>
         </Head>
-        <ErrorComponent message={t('withOutFavorites')} />
+        <ErrorComponent message="You do not have any favorite drink yet!" />
       </>
     );
   }
@@ -43,17 +39,9 @@ export default function MyFavorites() {
   return (
     <>
       <Head>
-        <title>{`${t('headerLinkFavorites')} | ${config.siteName}`}</title>
+        <title>{`My Favorites | ${config.siteName}`}</title>
       </Head>
       <Favorites drinks={favoritesInfo} />
     </>
   );
 }
-
-export const getStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  };
-};

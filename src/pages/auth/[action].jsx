@@ -1,6 +1,3 @@
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
-
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 
@@ -15,16 +12,15 @@ import config from '../../config';
 
 export default function AuthPage({ action }) {
   const { user, logout } = useContext(AuthContext);
-  const { t } = useTranslation();
 
   if (user.authenticated && action !== 'signout') {
     window.location.href = '/';
     return (
       <>
         <Head>
-          <title>{`${t('loginSingUp')} | ${config.siteName}`}</title>
+          <title>{`Sign Up | ${config.siteName}`}</title>
         </Head>
-        <ErrorComponent message={t('redirecting')} />
+        <ErrorComponent message="Redirecting..." />
       </>
     );
   }
@@ -34,9 +30,9 @@ export default function AuthPage({ action }) {
     return (
       <>
         <Head>
-          <title>{`${t('loginSingUp')} | ${config.siteName}`}</title>
+          <title>{`Sign Up | ${config.siteName}`}</title>
         </Head>
-        <ErrorComponent message={t('redirecting')} />
+        <ErrorComponent message="Redirecting..." />
       </>
     );
   }
@@ -45,7 +41,7 @@ export default function AuthPage({ action }) {
     return (
       <>
         <Head>
-          <title>{`${t('loginSingUp')} | ${config.siteName}`}</title>
+          <title>{`Sign Up | ${config.siteName}`}</title>
         </Head>
         <Auth action={action} />
       </>
@@ -55,7 +51,7 @@ export default function AuthPage({ action }) {
   return (
     <>
       <Head>
-        <title>{`${t('loginSingIn')} | ${config.siteName}`}</title>
+        <title>{`Sign In | ${config.siteName}`}</title>
       </Head>
       <Auth action={action} />
     </>
@@ -79,12 +75,11 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ locale, params }) => {
+export const getStaticProps = async ({ params }) => {
   const action = params.action.toLowerCase();
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
       action,
     },
   };

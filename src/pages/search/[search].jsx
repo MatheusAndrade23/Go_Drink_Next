@@ -1,5 +1,3 @@
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 
@@ -13,43 +11,42 @@ import { ErrorComponent } from '../../components/ErrorComponent';
 import config from '../../config';
 
 export default function SearchPage({ drinks, search }) {
-  const { t } = useTranslation();
   const url = config.defaultImageUrl;
   const router = useRouter();
-  const title = `${t('headerLinkADrinks')} | ${config.siteName}`;
+  const title = `Search | ${config.siteName}`;
 
   if (drinks === false) {
-    const title = `${t('serverErrorTitle')} | ${config.siteName}`;
+    const title = `Search: "${search}" | ${config.siteName}`;
     return (
       <>
         <NextSeo
           title={title}
-          description={`${t('serverErrorTitle')} - ${t('description')}`}
+          description={`Server Error - ${config.description}`}
           canonical={config.pageUrl + router.asPath}
           openGraph={{
             url,
             title,
           }}
         />
-        <ErrorComponent message={t('serverErrorTitle')} />
+        <ErrorComponent message="Server Error" />
       </>
     );
   }
 
   if (drinks === null) {
-    const title = `${t('searchTitle')}: "${search}" | ${config.siteName}`;
+    const title = `Search: "${search}" | ${config.siteName}`;
     return (
       <>
         <NextSeo
           title={title}
-          description={`${title} - ${t('description')}`}
+          description={`${title} - ${config.description}`}
           canonical={config.pageUrl + router.asPath}
           openGraph={{
             url,
             title,
           }}
         />
-        <ErrorComponent message={`${t('noResultsSearch')}: "${search}"`} />
+        <ErrorComponent message={`No results for your search: "${search}"`} />
       </>
     );
   }
@@ -58,7 +55,7 @@ export default function SearchPage({ drinks, search }) {
     <>
       <NextSeo
         title={title}
-        description={`${title} - ${t('description')}`}
+        description={`${title} - ${config.description}`}
         canonical={config.pageUrl + router.asPath}
         openGraph={{
           url,
@@ -70,7 +67,7 @@ export default function SearchPage({ drinks, search }) {
   );
 }
 
-export const getServerSideProps = async ({ locale, params }) => {
+export const getServerSideProps = async ({ params }) => {
   const { search } = params;
   let drinks = [];
   try {
@@ -86,7 +83,6 @@ export const getServerSideProps = async ({ locale, params }) => {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
       drinks,
       search,
     },

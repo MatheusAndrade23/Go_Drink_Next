@@ -1,6 +1,8 @@
 const config = {
   siteName: 'Go Drink',
   pageUrl: 'https://go-drink.vercel.app',
+  description:
+    'An open source website with over 600 different cocktails recipes from around the world.',
   dbUrl: 'https://www.thecocktaildb.com',
   apiUrl: 'https://go-drink-backend.vercel.app/',
   linkedin: 'https://www.linkedin.com/in/matheus-andrade23/',

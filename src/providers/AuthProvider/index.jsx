@@ -1,6 +1,5 @@
 import P from 'prop-types';
 
-import { useTranslation } from 'next-i18next';
 import { createContext, useEffect, useState } from 'react';
 
 import { Loading } from '../../components/Loading';
@@ -12,13 +11,11 @@ import { api, createSession } from '../../services/api';
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
-  const { t, i18n } = useTranslation();
-
   const [user, setUser] = useState({ authenticated: false });
   const [loadingControl, setLoadingControl] = useState(true);
   const [authLoading, setAuthLoading] = useState(false);
   const [message, setMessage] = useState(null);
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState('enMessage');
 
   useEffect(() => {
     const recoveredToken = localStorage.getItem('token');
@@ -31,10 +28,6 @@ export const AuthProvider = ({ children }) => {
 
     setLoadingControl(false);
   }, []);
-
-  useEffect(() => {
-    setLanguage(i18n.language + 'Message');
-  }, [i18n.language]);
 
   const login = async (email, password) => {
     setAuthLoading(true);
@@ -57,7 +50,7 @@ export const AuthProvider = ({ children }) => {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        setMessage(t('error500message'));
+        setMessage('Something went wrong, try again later!');
       } else {
         setMessage(err[language]);
       }
@@ -73,7 +66,7 @@ export const AuthProvider = ({ children }) => {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        setMessage(t('error500message'));
+        setMessage('Something went wrong, try again later!');
       } else {
         setMessage(err[language]);
       }
@@ -91,7 +84,7 @@ export const AuthProvider = ({ children }) => {
   const updateFavorites = async (id, drink) => {
     setAuthLoading(true);
     if (!user.authenticated) {
-      setMessage(t('notAuthenticated'));
+      setMessage('Please log in before putting the drink in favorites!');
     }
 
     console.log(id, drink);
@@ -124,7 +117,7 @@ export const AuthProvider = ({ children }) => {
       setAuthLoading(false);
       // const err = error.response.data;
       if (!error) {
-        setMessage(t('error500message'));
+        setMessage('Something went wrong, try again later!');
       } else {
         setMessage(error[language]);
       }
@@ -136,13 +129,13 @@ export const AuthProvider = ({ children }) => {
     try {
       await api.post('/auth/send-email', { email });
       setAuthLoading(false);
-      setMessage(t('mailBox'));
+      setMessage('Check your mail box!');
       window.location.href = '/';
     } catch (error) {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        setMessage(t('error500message'));
+        setMessage('Something went wrong, try again later!');
       } else {
         setMessage(err[language]);
       }
@@ -154,13 +147,13 @@ export const AuthProvider = ({ children }) => {
     try {
       await api.post('/auth/reset-password', { email, token, password });
       setAuthLoading(false);
-      setMessage(t('passwordChanged'));
+      setMessage('Password changed successfully!');
       window.location.href = '/auth/signin';
     } catch (error) {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        setMessage(t('error500message'));
+        setMessage('Something went wrong, try again later!');
       } else {
         setMessage(err[language]);
       }

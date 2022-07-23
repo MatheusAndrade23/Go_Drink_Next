@@ -1,6 +1,5 @@
 import * as Styled from './styles';
 
-import { useTranslation } from 'react-i18next';
 import { useState, useContext } from 'react';
 
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
@@ -17,7 +16,6 @@ import config from '../../config';
 
 export const ResetPassword = ({ token, email }) => {
   const { resetPassword } = useContext(AuthContext);
-  const { t } = useTranslation();
 
   const [showPassword, setShowPassword] = useState(null);
   const [password, setPassword] = useState('');
@@ -36,11 +34,11 @@ export const ResetPassword = ({ token, email }) => {
         <Heading size="medium" as="h4">
           GODRINK
         </Heading>
-        <TextComponent>{t('weResetPassword')}</TextComponent>
+        <TextComponent>Please enter your new password below.</TextComponent>
         <Styled.PasswordContainer>
           <InputComponent
-            text={`${t('password')}:`}
-            placeholder={t('newPassword')}
+            text="Password"
+            placeholder="Type your new Password here..."
             name="password"
             type={showPassword ? 'text' : 'password'}
             handleChange={handleGetInfo}
@@ -50,7 +48,7 @@ export const ResetPassword = ({ token, email }) => {
           </button>
         </Styled.PasswordContainer>
         <ButtonComponent bold={false} handleSubmit={setNewPassword}>
-          {t('recPassword')}
+          Change password
         </ButtonComponent>
       </Styled.Login>
       <ReturnButton />

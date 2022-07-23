@@ -1,5 +1,3 @@
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 
@@ -10,8 +8,7 @@ import { Home } from '../templates/Home';
 import config from '../config';
 
 export default function HomePage() {
-  const { t } = useTranslation();
-  const title = `${t('title')} | ${config.siteName}`;
+  const title = `Best Cocktails Recipes | ${config.siteName}`;
   const url = config.defaultImageUrl;
   const router = useRouter();
 
@@ -19,7 +16,7 @@ export default function HomePage() {
     <>
       <NextSeo
         title={title}
-        description={t('description')}
+        description={config.description}
         canonical={config.pageUrl + router.asPath}
         openGraph={{
           url,
@@ -30,11 +27,3 @@ export default function HomePage() {
     </>
   );
 }
-
-export const getStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  };
-};

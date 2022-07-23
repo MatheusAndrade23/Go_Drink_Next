@@ -1,6 +1,5 @@
 import * as Styled from './styles';
 
-import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 
 import { db } from '../../services/api';
@@ -9,8 +8,6 @@ import { Heading } from '../Heading';
 import { Loading } from '../Loading';
 
 export const RandomDrinkComponent = () => {
-  const { t } = useTranslation();
-
   const [drink, setDrink] = useState([]);
   const [error, setError] = useState(false);
   const [loadingControl, setLoadingControl] = useState(true);
@@ -35,7 +32,7 @@ export const RandomDrinkComponent = () => {
         <Styled.Drink
           key={drink.idDrink}
           onClick={() => (window.location.href = `/drink/${drink.idDrink}`)}
-          title={`${drink.strDrink} ${t('details')}`}
+          title={`${drink.strDrink} details`}
         >
           <img src={drink.strDrinkThumb} alt={drink.strDrink} loading="lazy" />
           <Heading as="h6" size="small">

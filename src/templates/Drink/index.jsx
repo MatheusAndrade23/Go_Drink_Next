@@ -1,6 +1,5 @@
 import * as Styled from './styles';
 
-import { useTranslation } from 'react-i18next';
 import { useState, useEffect, useContext } from 'react';
 
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
@@ -16,7 +15,6 @@ import config from '../../config';
 
 export const Drink = ({ drink, ingredients }) => {
   const { user, updateFavorites } = useContext(AuthContext);
-  const { t } = useTranslation();
   const id = drink.idDrink;
 
   const [isFavorite, setIsFavorite] = useState(false);
@@ -45,9 +43,9 @@ export const Drink = ({ drink, ingredients }) => {
         <Styled.Info>
           <Styled.Favorite onClick={handleFavorite}>
             {isFavorite ? (
-              <AiFillStar title={t('removeFavorites')} />
+              <AiFillStar title="Remove from Favorites" />
             ) : (
-              <AiOutlineStar title={t('addFavorite')} />
+              <AiOutlineStar title="Add to Favorites" />
             )}
           </Styled.Favorite>
           <Heading>{drink.strDrink}</Heading>
@@ -60,7 +58,7 @@ export const Drink = ({ drink, ingredients }) => {
             <Styled.List>
               <>
                 <Heading size="small" as="h6">
-                  {`${t('drinkIngredients')}:`}
+                  Ingredients:
                 </Heading>
                 {ingredients.ingredients.map((ingredient, index) => (
                   <li key={`${ingredient}-${index}`}>{ingredient}</li>
@@ -70,7 +68,7 @@ export const Drink = ({ drink, ingredients }) => {
             <Styled.List>
               <>
                 <Heading size="small" as="h6">
-                  {`${t('drinkMeasures')}:`}
+                  Measures:
                 </Heading>
                 {ingredients.measures.map((measure, index) => (
                   <li key={`${measure}-${index}`}>{measure}</li>
@@ -79,7 +77,7 @@ export const Drink = ({ drink, ingredients }) => {
             </Styled.List>
           </SmallContainer>
           <Heading as="h6" size="small">
-            {t('instructions')}
+            Instructions:
           </Heading>
           <Styled.Instructions>{drink.strInstructions}</Styled.Instructions>
         </Styled.Info>

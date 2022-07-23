@@ -1,6 +1,5 @@
 import * as Styled from './styles';
 
-import { useTranslation } from 'react-i18next';
 import { useState, useContext } from 'react';
 
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
@@ -18,7 +17,6 @@ import config from '../../config';
 
 export const Auth = ({ action }) => {
   const { user, login, logout, register } = useContext(AuthContext);
-  const { t } = useTranslation();
 
   const [showPassword, setShowPassword] = useState(false);
   const [userInfo, setUserInfo] = useState({});
@@ -44,16 +42,16 @@ export const Auth = ({ action }) => {
           GODRINK
         </Heading>
         <InputComponent
-          text={`${t('email')}:`}
-          placeholder={t('typeEmail')}
+          text={`Email:`}
+          placeholder="Type your email here..."
           name="email"
           type="email"
           handleChange={handleGetInfo}
         />
         <Styled.PasswordContainer>
           <InputComponent
-            text={`${t('password')}:`}
-            placeholder={t('typePassword')}
+            text="Password"
+            placeholder="Type your password here..."
             name="password"
             type={showPassword ? 'text' : 'password'}
             handleChange={handleGetInfo}
@@ -63,21 +61,23 @@ export const Auth = ({ action }) => {
           </button>
         </Styled.PasswordContainer>
         <ButtonComponent bold={false} handleSubmit={handleSubmitLogin}>
-          {action === 'signin' ? t('loginSingIn') : t('loginSingUp')}
+          {action === 'signin' ? 'Sign In' : 'Sign Up'}
         </ButtonComponent>
         <Styled.OtherAction>
           <TextComponent>
-            {action == 'signin' ? t('doNotHaveAccount') : t('haveAccount')}
+            {action == 'signin'
+              ? 'Do not you have an account yet?'
+              : 'Already have an account?'}
           </TextComponent>
           <LinkComponent
             link={action !== 'signin' ? '/auth/signin' : '/auth/signup'}
           >
-            {action !== 'signin' ? t('loginSingIn') : t('loginSingUp')}
+            {action !== 'signin' ? 'Sign In' : 'Sign Up'}
           </LinkComponent>
         </Styled.OtherAction>
         {action === 'signin' && (
           <Styled.ResetPassword href="/forgot-password">
-            {t('forgotPassword')}
+            Forgot my password
           </Styled.ResetPassword>
         )}
       </Styled.Login>

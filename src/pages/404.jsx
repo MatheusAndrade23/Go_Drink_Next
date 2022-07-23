@@ -1,27 +1,17 @@
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
-
 import Head from 'next/head';
 
 import { PageNotFound } from '../templates/PageNotFound';
 
+import config from '../config';
+
 export default function Page404() {
-  const { t } = useTranslation();
   return (
     <>
       <Head>
-        <title>{t('pageNotFound')}</title>
-        <meta name="description" content={t('description')} />
+        <title>This page does not exist!</title>
+        <meta name="description" content={config.description} />
       </Head>
       <PageNotFound />
     </>
   );
 }
-
-export const getStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  };
-};

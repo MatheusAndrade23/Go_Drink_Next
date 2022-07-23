@@ -20,14 +20,14 @@ export const Lists = ({ kinds, kind, images, type, name }) => {
       .replace(/_/, ' ')}`;
     switch (index) {
       case 'i':
-        return `${t('ingredientTitle')} ${wordFormatted}:`;
+        return `Drinks that are made with ${wordFormatted}:`;
 
       case 'c':
-        return `${t('drinksKindCategory')} ${wordFormatted} ${t('category')}:`;
+        return `Drinks of the ${wordFormatted} category:`;
 
       case 'g':
-        return `${t('drinksKindGlass')} ${wordFormatted} ${
-          word.includes('lass') ? ':' : index === 'g' && `${t('glass')}:`
+        return `Drinks of the ${wordFormatted} ${
+          word.includes('lass') ? ':' : index === 'g' && `glass:`
         }`;
     }
   };
