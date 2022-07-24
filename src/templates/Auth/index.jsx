@@ -50,7 +50,7 @@ export const Auth = ({ action }) => {
         />
         <Styled.PasswordContainer>
           <InputComponent
-            text="Password"
+            text="Password:"
             placeholder="Type your password here..."
             name="password"
             type={showPassword ? 'text' : 'password'}
@@ -66,7 +66,7 @@ export const Auth = ({ action }) => {
         <Styled.OtherAction>
           <TextComponent>
             {action == 'signin'
-              ? 'Do not you have an account yet?'
+              ? 'Do not you have an account?'
               : 'Already have an account?'}
           </TextComponent>
           <LinkComponent
