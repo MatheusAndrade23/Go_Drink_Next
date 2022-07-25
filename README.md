@@ -85,7 +85,6 @@ _<h3 id="trocando">Adicionando aos favoritos! ⭐</h3>_
 - ✔️ Responsivo
 - ✔️ Ferramenta de pesquisa
 - ✔️ Mudança de Tema
-- ✔️ Mudança de Língua
 - ✔️ Recuperação de Senha
 - ✔️ Lista de favoritos
 - ✔️ Ver detalhes da Bebida Escolhida
