@@ -59,6 +59,16 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (email, password) => {
     setAuthLoading(true);
+    const emailRegex =
+      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi;
+
+    const emailTested = emailRegex.test(email);
+
+    if (!emailTested) {
+      setMessage('Please type a valid email!');
+      return;
+    }
+
     try {
       await api.post('/auth/signup', { email, password });
       login(email, password);
