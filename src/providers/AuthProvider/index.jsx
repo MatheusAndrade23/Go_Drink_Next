@@ -65,6 +65,7 @@ export const AuthProvider = ({ children }) => {
     const emailTested = emailRegex.test(email);
 
     if (!emailTested) {
+      setAuthLoading(false);
       setMessage('Please type a valid email!');
       return;
     }
