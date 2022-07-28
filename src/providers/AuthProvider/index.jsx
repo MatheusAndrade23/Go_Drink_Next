@@ -93,12 +93,12 @@ export const AuthProvider = ({ children }) => {
   };
 
   const updateFavorites = async (id, drink) => {
-    setAuthLoading(true);
     if (!user.authenticated) {
       setMessage('Please log in before putting the drink in favorites!');
+      return;
     }
 
-    console.log(id, drink);
+    setAuthLoading(true);
 
     try {
       await api.patch(`/drink/favorites/${user._id}`, {
