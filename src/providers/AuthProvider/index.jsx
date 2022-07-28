@@ -126,11 +126,11 @@ export const AuthProvider = ({ children }) => {
       setAuthLoading(false);
     } catch (error) {
       setAuthLoading(false);
-      // const err = error.response.data;
-      if (!error) {
+      const err = error.response.data;
+      if (!err) {
         setMessage('Something went wrong, try again later!');
       } else {
-        setMessage(error[language]);
+        setMessage(err[language]);
       }
     }
   };
