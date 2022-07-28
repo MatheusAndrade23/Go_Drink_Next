@@ -5,7 +5,6 @@ import { ForgotPassword } from '../templates/ForgotPassword';
 import config from '../config';
 
 export default function ForgotPasswordTemplate() {
-  const { t } = useTranslation();
   return (
     <>
       <Head>
