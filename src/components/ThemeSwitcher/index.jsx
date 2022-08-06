@@ -3,7 +3,6 @@ import * as Styled from './styles';
 import { useContext } from 'react';
 
 import { ThemeSwitcherContext } from '../../providers/ThemeProvider';
-import { useTranslation } from 'react-i18next';
 
 export const ThemeSwitcher = () => {
   const { themeSwitcher, theme } = useContext(ThemeSwitcherContext);

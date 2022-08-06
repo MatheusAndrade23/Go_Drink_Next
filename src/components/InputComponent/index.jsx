@@ -1,4 +1,3 @@
-import P from 'prop-types';
 import * as Styled from './styles';
 
 export const InputComponent = ({
@@ -22,12 +21,4 @@ export const InputComponent = ({
       />
     </>
   );
-};
-
-InputComponent.propTypes = {
-  handleChange: P.func.isRequired,
-  type: P.oneOf(['text', 'email', 'password']),
-  name: P.string.isRequired,
-  text: P.string,
-  placeholder: P.string.isRequired,
 };

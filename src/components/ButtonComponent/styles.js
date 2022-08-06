@@ -7,10 +7,6 @@ const ButtonModel = {
     border: 2px solid ${theme.colors.thirdColor};
     color: ${theme.colors.thirdColor};
     background-color: transparent;
-
-    &:hover {
-      box-shadow: 0px 0px 8px 0px ${theme.colors.thirdColor};
-    }
   `,
   icon: (theme) => css`
     height: 40px;
@@ -23,10 +19,6 @@ const ButtonModel = {
     align-items: center;
     justify-content: center;
     margin-left: 10px;
-
-    &:hover {
-      box-shadow: 0px 0px 8px 0px ${theme.colors.thirdColor};
-    }
   `,
 };
 
@@ -51,12 +43,16 @@ const TextWeight = (bold) => css`
 `;
 
 export const Button = styled.button`
-  ${({ theme, uppercase, bold, size, model }) => css`
-    cursor: pointer;
+  ${({ theme, uppercase, bold, size, model, disabled }) => css`
     transition: 0.5s;
     ${TextCase(uppercase)};
     ${TextWeight(bold)};
-    ${TextSize[size](theme)}
-    ${ButtonModel[model](theme)}
+    ${TextSize[size](theme)};
+    ${ButtonModel[model](theme)};
+    cursor: ${disabled ? 'not-allowed' : 'pointer'};
+
+    &:hover {
+      ${!disabled && `box-shadow: 0px 0px 8px 0px ${theme.colors.thirdColor};`}
+    }
   `}
 `;

@@ -1,4 +1,3 @@
-import P from 'prop-types';
 import * as Styled from './styles';
 
 import { Heading } from '../Heading';
@@ -25,9 +24,4 @@ export const ErrorComponent = ({ code, message }) => {
       </Styled.Error>
     </main>
   );
-};
-
-ErrorComponent.propTypes = {
-  code: P.number,
-  message: P.string.isRequired,
 };

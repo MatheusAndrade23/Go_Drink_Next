@@ -1,4 +1,3 @@
-import P from 'prop-types';
 import * as Styled from './styles';
 
 export const Logo = ({ smallText, text, srcImg = '' }) => {
@@ -8,10 +7,4 @@ export const Logo = ({ smallText, text, srcImg = '' }) => {
       <Styled.SmallText>{smallText && smallText}</Styled.SmallText>
     </Styled.Logo>
   );
-};
-
-Logo.propTypes = {
-  text: P.string.isRequired,
-  smallText: P.string.isRequired,
-  srcImg: P.string,
 };

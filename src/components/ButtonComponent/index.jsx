@@ -1,4 +1,3 @@
-import P from 'prop-types';
 import * as Styled from './styles';
 
 export const ButtonComponent = ({
@@ -9,6 +8,7 @@ export const ButtonComponent = ({
   size = 'small',
   model = 'standard',
   name = '',
+  disabled,
 }) => {
   return (
     <Styled.Button
@@ -17,19 +17,16 @@ export const ButtonComponent = ({
       bold={bold}
       size={size}
       model={model}
-      title={model === 'icon' ? name : children}
+      title={
+        disabled
+          ? 'Please type something to search'
+          : model === 'icon'
+          ? name
+          : children
+      }
+      disabled={disabled}
     >
       {children}
     </Styled.Button>
   );
-};
-
-ButtonComponent.propTypes = {
-  children: P.node.isRequired,
-  handleSubmit: P.func.isRequired,
-  name: P.string,
-  uppercase: P.bool,
-  bold: P.bool,
-  size: P.oneOf(['xsmall', 'small', 'medium']),
-  model: P.oneOf(['standard', 'icon']),
 };

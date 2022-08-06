@@ -1,4 +1,3 @@
-import P from 'prop-types';
 import * as Styled from './styles';
 
 export const LinkComponent = ({
@@ -13,12 +12,4 @@ export const LinkComponent = ({
       {children}
     </Styled.Link>
   );
-};
-
-LinkComponent.propTypes = {
-  children: P.node.isRequired,
-  link: P.string.isRequired,
-  uppercase: P.bool,
-  size: P.oneOf(['xsmall', 'small', 'medium']),
-  model: P.oneOf(['standard', 'alternative']),
 };

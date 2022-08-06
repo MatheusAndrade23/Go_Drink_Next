@@ -25,11 +25,11 @@ export const Header = ({ search }) => {
   };
 
   const SearchSubmit = () => {
-    if (url) {
+    if (url.length > 0) {
       window.location.href = `/search/${url}`;
-    } else {
-      setMessage('Please type something to search!');
+      return;
     }
+    setMessage('Please type something to search!');
   };
 
   useEffect(() => {
@@ -57,6 +57,7 @@ export const Header = ({ search }) => {
             handleSubmit={SearchSubmit}
             model="icon"
             name="Click to search"
+            disabled={url.length === 0}
           >
             <FaSearch />
           </ButtonComponent>

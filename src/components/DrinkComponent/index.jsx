@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import P from 'prop-types';
 import * as Styled from './styles';
 
 import { Heading } from '../Heading';
@@ -17,8 +16,4 @@ export const DrinkComponent = ({ drink }) => {
       </Heading>
     </Styled.Drink>
   );
-};
-
-DrinkComponent.propTypes = {
-  drink: P.object.isRequired,
 };

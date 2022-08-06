@@ -1,4 +1,3 @@
-import P from 'prop-types';
 import * as Styled from './styles';
 
 export const TextComponent = ({
@@ -11,10 +10,4 @@ export const TextComponent = ({
       {children}
     </Styled.Text>
   );
-};
-
-TextComponent.propTypes = {
-  children: P.node.isRequired,
-  uppercase: P.bool,
-  size: P.oneOf(['xsmall', 'small', 'medium']),
 };

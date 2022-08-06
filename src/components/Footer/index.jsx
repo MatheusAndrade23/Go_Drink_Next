@@ -1,7 +1,5 @@
 import * as Styled from './styles';
 
-import { useTranslation } from 'react-i18next';
-
 import { TbApi } from 'react-icons/tb';
 import { GiThorHammer } from 'react-icons/gi';
 import { BsFillArrowUpSquareFill } from 'react-icons/bs';
@@ -14,7 +12,6 @@ import { ThemeSwitcher } from '../ThemeSwitcher';
 import config from '../../config';
 
 export const Footer = () => {
-  const { t } = useTranslation();
   return (
     <Styled.Footer>
       <TextComponent>

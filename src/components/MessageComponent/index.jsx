@@ -1,4 +1,3 @@
-import P from 'prop-types';
 import { useEffect } from 'react';
 import * as Styled from './styles';
 
@@ -13,9 +12,4 @@ export const MessageComponent = ({ message, hide }) => {
       <p>{message}</p>
     </Styled.MessageContainer>
   );
-};
-
-MessageComponent.propTypes = {
-  message: P.string.isRequired,
-  hide: P.func.isRequired,
 };

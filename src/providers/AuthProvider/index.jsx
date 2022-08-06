@@ -1,5 +1,3 @@
-import P from 'prop-types';
-
 import { createContext, useEffect, useState } from 'react';
 
 import { Loading } from '../../components/Loading';
@@ -58,17 +56,17 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (email, password) => {
-    setAuthLoading(true);
     const emailRegex =
       /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi;
 
     const emailTested = emailRegex.test(email);
 
     if (!emailTested) {
-      setAuthLoading(false);
       setMessage('Please type a valid email!');
       return;
     }
+
+    setAuthLoading(true);
 
     try {
       await api.post('/auth/signup', { email, password });
@@ -188,8 +186,4 @@ export const AuthProvider = ({ children }) => {
       {authLoading && <AuthLoading />}
     </AuthContext.Provider>
   );
-};
-
-AuthProvider.propTypes = {
-  children: P.node.isRequired,
 };

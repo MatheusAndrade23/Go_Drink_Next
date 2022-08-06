@@ -1,5 +1,3 @@
-import P from 'prop-types';
-
 import { createContext, useEffect, useState } from 'react';
 
 import { ThemeProvider as ThemeStyledProvider } from 'styled-components';
@@ -36,8 +34,4 @@ export const ThemeProvider = ({ children }) => {
       <GlobalStyles />
     </ThemeStyledProvider>
   );
-};
-
-ThemeProvider.propTypes = {
-  children: P.node.isRequired,
 };
