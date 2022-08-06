@@ -16,7 +16,6 @@
 
 <p align="center">
   <a href="https://go-drink-next.vercel.app/">Clique para visitar o site!</a> -
-  <a href="https://github.com/MatheusAndrade23/Go_Drink_React">Clique para ver a versão em React!</a> -
   <a href="https://github.com/MatheusAndrade23/GoDrink_Backend">Clique para ver o Backend!</a>
 </p>
 
@@ -45,7 +44,6 @@ _<h3 id="trocando">Adicionando aos favoritos! ⭐</h3>_
 - React Icons
 - Axios
 - Styled Components
-- Jest Styled Components
 - React Elastic Carousel
 - Context API
 - React Hooks
