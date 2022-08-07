@@ -13,10 +13,10 @@ import config from '../../config';
 export default function SearchPage({ drinks, search }) {
   const url = config.defaultImageUrl;
   const router = useRouter();
-  const title = `Search | ${config.siteName}`;
+  const title = `Search: "${search}" | ${config.siteName}`;
 
   if (drinks === false) {
-    const title = `Search: "${search}" | ${config.siteName}`;
+    const title = `Server Error | ${config.siteName}`;
     return (
       <>
         <NextSeo
@@ -34,7 +34,6 @@ export default function SearchPage({ drinks, search }) {
   }
 
   if (drinks === null) {
-    const title = `Search: "${search}" | ${config.siteName}`;
     return (
       <>
         <NextSeo
