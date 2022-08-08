@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Drink = styled.div`
   ${({ theme }) => css`
-    margin: 10px 0;
+    margin: 10px 5px;
     cursor: pointer;
     height: 340px;
     width: 310px;

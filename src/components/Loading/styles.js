@@ -14,7 +14,7 @@ export const Container = styled.span`
     position: absolute;
     left: 0;
     right: 0;
-    height: 50vh;
+    height: 100vh;
     width: 100%;
     z-index: 100;
     background-color: transparent;

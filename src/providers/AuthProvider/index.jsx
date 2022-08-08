@@ -2,9 +2,9 @@ import { createContext, useEffect, useState } from 'react';
 
 import { Loading } from '../../components/Loading';
 import { AuthLoading } from '../../components/AuthLoading';
-import { MessageComponent } from '../../components/MessageComponent';
 
 import { api, createSession } from '../../services/api';
+import { toast } from 'react-toastify';
 
 export const AuthContext = createContext({});
 
@@ -12,8 +12,10 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({ authenticated: false });
   const [loadingControl, setLoadingControl] = useState(true);
   const [authLoading, setAuthLoading] = useState(false);
-  const [message, setMessage] = useState(null);
   const [language, setLanguage] = useState('enMessage');
+
+  const emailRegex =
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi;
 
   useEffect(() => {
     const recoveredToken = localStorage.getItem('token');
@@ -28,6 +30,18 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
+    if (email.length === 0 || password.length === 0) {
+      toast.warning('Please fill in all fields!', { autoClose: 3000 });
+      return;
+    }
+
+    const emailTested = emailRegex.test(email);
+
+    if (!emailTested) {
+      toast.warning('Please type a valid email!', { autoClose: 3000 });
+      return;
+    }
+
     setAuthLoading(true);
     try {
       const response = await createSession(email, password);
@@ -48,21 +62,20 @@ export const AuthProvider = ({ children }) => {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        setMessage('Something went wrong, try again later!');
+        toast.error('Something went wrong, try again later!', {
+          autoClose: 3000,
+        });
       } else {
-        setMessage(err[language]);
+        toast.error(err[language], { autoClose: 3000 });
       }
     }
   };
 
   const register = async (email, password) => {
-    const emailRegex =
-      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi;
-
     const emailTested = emailRegex.test(email);
 
     if (!emailTested) {
-      setMessage('Please type a valid email!');
+      toast.warning('Please type a valid email!', { autoClose: 3000 });
       return;
     }
 
@@ -75,9 +88,11 @@ export const AuthProvider = ({ children }) => {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        setMessage('Something went wrong, try again later!');
+        toast.error('Something went wrong, try again later!', {
+          autoClose: 3000,
+        });
       } else {
-        setMessage(err[language]);
+        toast.error(err[language], { autoClose: 3000 });
       }
     }
   };
@@ -90,9 +105,11 @@ export const AuthProvider = ({ children }) => {
     window.location.href = '/auth/signin';
   };
 
-  const updateFavorites = async (id, drink) => {
+  const updateFavorites = async (id, drink, isFavorite) => {
     if (!user.authenticated) {
-      setMessage('Please log in before putting the drink in favorites!');
+      toast.warning('Please log in before putting the drink in favorites!', {
+        autoClose: 3000,
+      });
       return;
     }
 
@@ -122,13 +139,26 @@ export const AuthProvider = ({ children }) => {
         favoritesInfo: newFavoritesInfo,
       });
       setAuthLoading(false);
+
+      if (isFavorite) {
+        toast.success('Drink removed from favorites successfully!', {
+          autoClose: 3000,
+        });
+        return;
+      }
+
+      toast.success('Drink added to favorites successfully!', {
+        autoClose: 3000,
+      });
     } catch (error) {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        setMessage('Something went wrong, try again later!');
+        toast.error('Something went wrong, try again later!', {
+          autoClose: 3000,
+        });
       } else {
-        setMessage(err[language]);
+        toast.error(err[language], { autoClose: 3000 });
       }
     }
   };
@@ -138,15 +168,17 @@ export const AuthProvider = ({ children }) => {
     try {
       await api.post('/auth/send-email', { email });
       setAuthLoading(false);
-      setMessage('Check your mail box!');
+      toast.success('Check your mail box!', { autoClose: 3000 });
       window.location.href = '/';
     } catch (error) {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        setMessage('Something went wrong, try again later!');
+        toast.error('Something went wrong, try again later!', {
+          autoClose: 3000,
+        });
       } else {
-        setMessage(err[language]);
+        toast.error(err[language], { autoClose: 3000 });
       }
     }
   };
@@ -156,15 +188,17 @@ export const AuthProvider = ({ children }) => {
     try {
       await api.post('/auth/reset-password', { email, token, password });
       setAuthLoading(false);
-      setMessage('Password changed successfully!');
+      toast.success('Password changed successfully!', { autoClose: 3000 });
       window.location.href = '/auth/signin';
     } catch (error) {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        setMessage('Something went wrong, try again later!');
+        toast.error('Something went wrong, try again later!', {
+          autoClose: 3000,
+        });
       } else {
-        setMessage(err[language]);
+        toast.error(err[language], { autoClose: 3000 });
       }
     }
   };
@@ -181,7 +215,6 @@ export const AuthProvider = ({ children }) => {
         forgotPassword,
       }}
     >
-      {message && <MessageComponent message={message} hide={setMessage} />}
       {loadingControl ? <Loading /> : children}
       {authLoading && <AuthLoading />}
     </AuthContext.Provider>

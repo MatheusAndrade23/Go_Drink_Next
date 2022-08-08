@@ -1,6 +1,9 @@
 import { DefaultSeo } from 'next-seo';
 import SEO from '../../next-seo-config';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 import { ThemeProvider } from '../providers/ThemeProvider';
 import { AuthProvider } from '../providers/AuthProvider';
 
@@ -14,6 +17,7 @@ const MyApp = ({ Component, pageProps }) => {
         <Component {...pageProps} />
         <Footer />
       </AuthProvider>
+      <ToastContainer />
     </ThemeProvider>
   );
 };

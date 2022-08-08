@@ -3,6 +3,7 @@ import * as Styled from './styles';
 import { useState, useEffect, useContext, useRef } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../providers/AuthProvider/index';
 
 import { Logo } from '../Logo';
@@ -11,14 +12,12 @@ import { LinkComponent } from '../LinkComponent';
 import { SmallContainer } from '../SmallContainer';
 import { InputComponent } from '../InputComponent';
 import { ButtonComponent } from '../ButtonComponent';
-import { MessageComponent } from '../MessageComponent';
 
 export const Header = ({ search }) => {
   const input_container = useRef(null);
   const { user } = useContext(AuthContext);
 
   const [url, setUrl] = useState('');
-  const [message, setMessage] = useState(null);
 
   const SearchInput = (e) => {
     setUrl(e.target.value);
@@ -29,7 +28,7 @@ export const Header = ({ search }) => {
       window.location.href = `/search/${url}`;
       return;
     }
-    setMessage('Please type something to search!');
+    toast.warning('Please type something to search!', { autoClose: 3000 });
   };
 
   useEffect(() => {
@@ -69,7 +68,6 @@ export const Header = ({ search }) => {
         )}
       </Styled.Header>
       <HeaderMenu />
-      {message && <MessageComponent message={message} hide={setMessage} />}
     </>
   );
 };

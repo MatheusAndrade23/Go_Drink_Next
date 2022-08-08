@@ -5,6 +5,7 @@ const config = {
     'An open source website with over 600 different cocktails recipes from around the world.',
   dbUrl: 'https://www.thecocktaildb.com',
   apiUrl: 'https://go-drink-backend.vercel.app/',
+  // apiUrl: 'http://localhost:5000/',
   linkedin: 'https://www.linkedin.com/in/matheus-andrade23/',
   gitHub: 'https://github.com/MatheusAndrade23',
   programaThor: 'https://programathor.com.br/users/131799',

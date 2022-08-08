@@ -19,13 +19,19 @@ export const Auth = ({ action }) => {
   const { user, login, logout, register } = useContext(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({ email: '', password: '' });
 
   const handleGetInfo = (e) => {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
 
-  const handleSubmitLogin = async () => {
+  const handleChangePasswordVisibility = (e) => {
+    e.preventDefault();
+    setShowPassword(!showPassword);
+  };
+
+  const handleSubmitLogin = async (e) => {
+    e.preventDefault();
     const { email, password } = userInfo;
 
     if (action === 'signin') {
@@ -42,7 +48,7 @@ export const Auth = ({ action }) => {
           GODRINK
         </Heading>
         <InputComponent
-          text={`Email:`}
+          text="Email:"
           placeholder="Type your email here..."
           name="email"
           type="email"
@@ -56,11 +62,15 @@ export const Auth = ({ action }) => {
             type={showPassword ? 'text' : 'password'}
             handleChange={handleGetInfo}
           />
-          <button onClick={() => setShowPassword(!showPassword)}>
+          <button onClick={handleChangePasswordVisibility}>
             {showPassword ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
           </button>
         </Styled.PasswordContainer>
-        <ButtonComponent bold={false} handleSubmit={handleSubmitLogin}>
+        <ButtonComponent
+          bold={false}
+          handleSubmit={handleSubmitLogin}
+          type="submit"
+        >
           {action === 'signin' ? 'Sign In' : 'Sign Up'}
         </ButtonComponent>
         <Styled.OtherAction>

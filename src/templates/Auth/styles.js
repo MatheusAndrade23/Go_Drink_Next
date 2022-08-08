@@ -67,7 +67,7 @@ export const PasswordContainer = styled.div`
   `}
 `;
 
-export const Login = styled.div`
+export const Login = styled.form`
   ${({ theme }) => css`
     width: max-content;
     padding: 30px;

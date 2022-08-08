@@ -6,6 +6,8 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 import { AuthContext } from '../../providers/AuthProvider/index';
 
+import { toast } from 'react-toastify';
+
 import { Header } from '../../components/Header';
 import { Heading } from '../../components/Heading';
 import { ReturnButton } from '../../components/ReturnButton';
@@ -20,7 +22,7 @@ export const Drink = ({ drink, ingredients }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleFavorite = async () => {
-    await updateFavorites(id, drink);
+    await updateFavorites(id, drink, isFavorite);
   };
 
   useEffect(() => {

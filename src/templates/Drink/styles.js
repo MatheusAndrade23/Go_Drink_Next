@@ -93,9 +93,16 @@ export const Favorite = styled.button`
 export const DrinkImg = styled.img`
   ${({ theme }) => css`
     border: 2px solid ${theme.colors.primaryColor};
-    width: 400px;
+    width: 40%;
     margin: 20px;
     justify-self: center;
+
+    @media (max-width: 1080px){
+      width: 80%;
+      max-width: 550px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
 
     @media ${theme.media.lteMedium} {
       max-height: 600px;
@@ -120,6 +127,10 @@ export const Drink = styled.div`
     justify-content: space-between;
     align-items: flex-end;
     width: 100%;
+
+    @media (max-width: 1080px){
+      justify-content: center;
+    }
 
     @media ${theme.media.smallScreen} {
       padding: ${theme.spacings.xsmall};

@@ -4,6 +4,7 @@ export const LightTheme = {
     secondaryColor: '#EEEEEE',
     thirdColor: '#00ADB5',
     fourthColor: '#FFFF',
+    shadow: 'rgba(0, 0, 0, 0.64)',
   },
   fonts: {
     family: {
