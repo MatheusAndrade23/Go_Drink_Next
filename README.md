@@ -47,6 +47,7 @@ _<h3 id="trocando">Adicionando aos favoritos! ⭐</h3>_
 - React Elastic Carousel
 - Context API
 - React Hooks
+- React Toastify
 
 #### BackEnd: `NodeJS!`
 
