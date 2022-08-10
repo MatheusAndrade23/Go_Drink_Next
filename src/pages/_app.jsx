@@ -17,7 +17,7 @@ const MyApp = ({ Component, pageProps }) => {
         <Component {...pageProps} />
         <Footer />
       </AuthProvider>
-      <ToastContainer />
+      <ToastContainer autoClose={3000} pauseOnHover={false} />
     </ThemeProvider>
   );
 };

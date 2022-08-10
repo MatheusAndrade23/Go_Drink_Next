@@ -31,14 +31,14 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     if (email.length === 0 || password.length === 0) {
-      toast.warning('Please fill in all fields!', { autoClose: 3000 });
+      toast.warning('Please fill in all fields!');
       return;
     }
 
     const emailTested = emailRegex.test(email);
 
     if (!emailTested) {
-      toast.warning('Please type a valid email!', { autoClose: 3000 });
+      toast.warning('Please type a valid email!');
       return;
     }
 
@@ -62,11 +62,9 @@ export const AuthProvider = ({ children }) => {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        toast.error('Something went wrong, try again later!', {
-          autoClose: 3000,
-        });
+        toast.error('Something went wrong, try again later!');
       } else {
-        toast.error(err[language], { autoClose: 3000 });
+        toast.error(err[language]);
       }
     }
   };
@@ -75,7 +73,7 @@ export const AuthProvider = ({ children }) => {
     const emailTested = emailRegex.test(email);
 
     if (!emailTested) {
-      toast.warning('Please type a valid email!', { autoClose: 3000 });
+      toast.warning('Please type a valid email!');
       return;
     }
 
@@ -88,11 +86,9 @@ export const AuthProvider = ({ children }) => {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        toast.error('Something went wrong, try again later!', {
-          autoClose: 3000,
-        });
+        toast.error('Something went wrong, try again later!');
       } else {
-        toast.error(err[language], { autoClose: 3000 });
+        toast.error(err[language]);
       }
     }
   };
@@ -107,9 +103,7 @@ export const AuthProvider = ({ children }) => {
 
   const updateFavorites = async (id, drink, isFavorite) => {
     if (!user.authenticated) {
-      toast.warning('Please log in before putting the drink in favorites!', {
-        autoClose: 3000,
-      });
+      toast.warning('Please log in before putting the drink in favorites!');
       return;
     }
 
@@ -141,24 +135,18 @@ export const AuthProvider = ({ children }) => {
       setAuthLoading(false);
 
       if (isFavorite) {
-        toast.success('Drink removed from favorites successfully!', {
-          autoClose: 3000,
-        });
+        toast.success('Drink removed from favorites successfully!');
         return;
       }
 
-      toast.success('Drink added to favorites successfully!', {
-        autoClose: 3000,
-      });
+      toast.success('Drink added to favorites successfully!');
     } catch (error) {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        toast.error('Something went wrong, try again later!', {
-          autoClose: 3000,
-        });
+        toast.error('Something went wrong, try again later!');
       } else {
-        toast.error(err[language], { autoClose: 3000 });
+        toast.error(err[language]);
       }
     }
   };
@@ -168,17 +156,15 @@ export const AuthProvider = ({ children }) => {
     try {
       await api.post('/auth/send-email', { email });
       setAuthLoading(false);
-      toast.success('Check your mail box!', { autoClose: 3000 });
+      toast.success('Check your mail box!');
       window.location.href = '/';
     } catch (error) {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        toast.error('Something went wrong, try again later!', {
-          autoClose: 3000,
-        });
+        toast.error('Something went wrong, try again later!');
       } else {
-        toast.error(err[language], { autoClose: 3000 });
+        toast.error(err[language]);
       }
     }
   };
@@ -188,17 +174,15 @@ export const AuthProvider = ({ children }) => {
     try {
       await api.post('/auth/reset-password', { email, token, password });
       setAuthLoading(false);
-      toast.success('Password changed successfully!', { autoClose: 3000 });
+      toast.success('Password changed successfully!');
       window.location.href = '/auth/signin';
     } catch (error) {
       setAuthLoading(false);
       const err = error.response.data;
       if (!err) {
-        toast.error('Something went wrong, try again later!', {
-          autoClose: 3000,
-        });
+        toast.error('Something went wrong, try again later!');
       } else {
-        toast.error(err[language], { autoClose: 3000 });
+        toast.error(err[language]);
       }
     }
   };
