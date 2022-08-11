@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
       api.defaults.headers.Authorization = `Bearer ${recoveredToken}`;
     }
 
-    async () => {
+    (async () => {
       const response = await api.get(`/drink/favorites/${oldUser._id}`);
       const oldFavorites = response.data.user.favorites;
       const oldFavoritesInfo = response.data.user.favoritesInfo;
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
           favoritesInfo: oldFavoritesInfo,
         }),
       );
-    };
+    })();
 
     setLoadingControl(false);
   }, []);
