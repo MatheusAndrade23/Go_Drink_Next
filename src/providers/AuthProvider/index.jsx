@@ -22,23 +22,8 @@ export const AuthProvider = ({ children }) => {
     const recoveredUser = localStorage.getItem('user');
 
     if (recoveredUser && recoveredToken) {
-      let oldUser = { ...JSON.parse(recoveredUser) };
-
       api.defaults.headers.Authorization = `Bearer ${recoveredToken}`;
-
-      (async () => {
-        const response = await api.get(`/drink/favorites/${oldUser._id}`);
-        const favorites = response.data.user.favorites;
-        const favoritesInfo = response.data.user.favoritesInfo;
-
-        oldUser = {
-          ...oldUser,
-          favorites,
-          favoritesInfo,
-        };
-        localStorage.setItem('user', JSON.stringify(oldUser));
-        setUser(oldUser);
-      })();
+      setUser({ ...JSON.parse(recoveredUser) });
     }
 
     setLoadingControl(false);
