@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
       setUser(newUser);
       setAuthLoading(false);
       toast.success('Logged successfully!');
-      toast.success('Redirecting..');
+      toast.info('Redirecting..');
       window.location.href = '/';
     } catch (error) {
       setAuthLoading(false);
@@ -96,9 +96,9 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
+  const logOut = () => {
+    localStorage.removeItem('@go-drink/user');
+    localStorage.removeItem('@go-drink/token');
     api.defaults.headers.Authorization = null;
     setUser({ authenticated: false });
     window.location.href = '/auth/signin';
@@ -182,7 +182,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         user,
         login,
-        logout,
+        logOut,
         register,
         updateFavorites,
         resetPassword,

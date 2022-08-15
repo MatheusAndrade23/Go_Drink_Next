@@ -1,61 +1,37 @@
+import { NextSeo } from 'next-seo';
+
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import { db } from '../../services/api';
 import { Auth } from '../../templates/Auth';
 import { ErrorComponent } from '../../components/ErrorComponent';
 
+import { toast } from 'react-toastify';
+
 import config from '../../config';
 
 export default function AuthPage({ action }) {
   const { user, logout } = useContext(AuthContext);
+  const { authenticated } = user;
+  const { siteName } = config;
 
-  if (user.authenticated && action !== 'signout') {
+  // const router = useRouter();
+  // const { action } = router.query;
+
+  if (authenticated && action !== 'signout') {
     window.location.href = '/';
     return (
       <>
-        <Head>
-          <title>{`Sign Up | ${config.siteName}`}</title>
-        </Head>
+        <NextSeo title={`Authenticated | ${siteName}`} />
         <ErrorComponent message="Redirecting..." />
       </>
     );
   }
 
-  if (action === 'signout') {
-    logout();
-    return (
-      <>
-        <Head>
-          <title>{`Sign Up | ${config.siteName}`}</title>
-        </Head>
-        <ErrorComponent message="Redirecting..." />
-      </>
-    );
-  }
-
-  if (action === 'signup') {
-    return (
-      <>
-        <Head>
-          <title>{`Sign Up | ${config.siteName}`}</title>
-        </Head>
-        <Auth action={action} />
-      </>
-    );
-  }
-
-  return (
-    <>
-      <Head>
-        <title>{`Sign In | ${config.siteName}`}</title>
-      </Head>
-      <Auth action={action} />
-    </>
-  );
+  return <Auth action={action} />;
 }
 
 export const getStaticPaths = async () => {
