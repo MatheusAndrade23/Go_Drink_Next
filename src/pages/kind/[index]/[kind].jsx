@@ -1,35 +1,26 @@
 import { NextSeo } from 'next-seo';
 
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import { db } from '../../../services/api';
 import { Kinds } from '../../../templates/Kinds';
+import { Header } from '../../../components/Header';
 import { ErrorComponent } from '../../../components/ErrorComponent';
-import { GetThumbImg } from '../../../utils/get-thumb-img';
 
 import config from '../../../config';
 
-export default function ListPage({ drinks, index, kind }) {
-  const url = config.defaultImageUrl;
+export default function KindPage({ drinks, index, kind }) {
+  const { defaultImageUrl: url, pageUrl, siteName, description } = config;
   const router = useRouter();
+
   const title = `${`${kind.charAt(0).toUpperCase()}${kind
     .slice(1)
-    .replace(/_/, ' ')}`} | ${config.siteName} `;
+    .replace(/_/, ' ')}`} | ${siteName} `;
 
-  if (drinks === false) {
-    const title = `Server Error | ${config.siteName}`;
+  if (drinks === null) {
     return (
       <>
-        <NextSeo
-          title={title}
-          description={`${title} - ${config.description}`}
-          canonical={config.pageUrl + router.asPath}
-          openGraph={{
-            url,
-            title,
-          }}
-        />
+        <NextSeo title={`Server Error | ${siteName}`} />
         <ErrorComponent message="Something went wrong, try again later!" />
       </>
     );
@@ -39,13 +30,14 @@ export default function ListPage({ drinks, index, kind }) {
     <>
       <NextSeo
         title={title}
-        description={`${title} - ${config.description}`}
-        canonical={config.pageUrl + router.asPath}
+        description={`${title} - ${description}`}
+        canonical={pageUrl + router.asPath}
         openGraph={{
           url,
           title,
         }}
       />
+      <Header />
       <Kinds drinks={drinks} index={index} kind={kind} />
     </>
   );
@@ -97,13 +89,13 @@ export const getServerSideProps = async ({ params }) => {
     try {
       drinks = resp.data.drinks.reverse();
     } catch (error) {
-      drinks = null;
+      drinks = undefined;
     }
   } catch (err) {
-    drinks = false;
+    drinks = null;
   }
 
-  if (drinks === null) {
+  if (drinks === undefined) {
     return {
       notFound: true,
     };
