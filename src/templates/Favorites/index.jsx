@@ -4,7 +4,6 @@ import { useEffect, useState, useContext } from 'react';
 
 import { AuthContext } from '../../providers/AuthProvider';
 
-import { Header } from '../../components/Header';
 import { Heading } from '../../components/Heading';
 import { Loading } from '../../components/Loading';
 import { ReturnButton } from '../../components/ReturnButton';
@@ -30,21 +29,18 @@ export const Favorites = () => {
   }, [user._id]);
 
   return (
-    <>
-      <Header />
-      <Styled.Container>
-        {!loading ? (
-          <>
-            <Heading size="small" as="h4">
-              Favorites:
-            </Heading>
-            <DrinksContainer drinks={drinks} />
-          </>
-        ) : (
-          <Loading />
-        )}
-      </Styled.Container>
+    <Styled.Container>
+      {!loading ? (
+        <>
+          <Heading size="small" as="h4">
+            Favorites:
+          </Heading>
+          <DrinksContainer drinks={drinks} />
+        </>
+      ) : (
+        <Loading />
+      )}
       <ReturnButton />
-    </>
+    </Styled.Container>
   );
 };

@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 
 import { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
@@ -6,20 +6,20 @@ import { AuthContext } from '../providers/AuthProvider';
 import { api } from '../services/api';
 
 import { Favorites } from '../templates/Favorites';
+import { Header } from '../components/Header/styles';
 import { ErrorComponent } from '../components/ErrorComponent';
 
 import config from '../config';
 
-export default function MyFavorites() {
+export default function FavoritesPage() {
   const { user } = useContext(AuthContext);
   const { authenticated, favorites, favoritesInfo } = user;
+  const title = `My Favorites | ${config.siteName}`;
 
   if (!authenticated) {
     return (
       <>
-        <Head>
-          <title>{`My Favorites | ${config.siteName}`}</title>
-        </Head>
+        <NextSeo title={title} />
         <ErrorComponent message="Please create an account or log in before having a list of favorite drinks!" />
       </>
     );
@@ -28,9 +28,7 @@ export default function MyFavorites() {
   if (favorites.length === 0) {
     return (
       <>
-        <Head>
-          <title>{`My Favorites | ${config.siteName}`}</title>
-        </Head>
+        <NextSeo title={title} />
         <ErrorComponent message="You do not have any favorite drink yet!" />
       </>
     );
@@ -38,9 +36,8 @@ export default function MyFavorites() {
 
   return (
     <>
-      <Head>
-        <title>{`My Favorites | ${config.siteName}`}</title>
-      </Head>
+      <NextSeo title={title} />
+      <Header />
       <Favorites />
     </>
   );
