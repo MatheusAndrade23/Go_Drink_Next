@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 import { db } from '../../services/api';
 import { Lists } from '../../templates/Lists';
-import { Header } from '../../../components/Header';
+import { Header } from '../../components/Header';
 import { ErrorComponent } from '../../components/ErrorComponent';
 
 import { GetThumbImg } from '../../utils/get-thumb-img';
