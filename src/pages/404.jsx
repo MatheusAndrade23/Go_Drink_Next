@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 
 import { PageNotFound } from '../templates/PageNotFound';
 
@@ -7,10 +7,7 @@ import config from '../config';
 export default function Page404() {
   return (
     <>
-      <Head>
-        <title>This page does not exist!</title>
-        <meta name="description" content={config.description} />
-      </Head>
+      <NextSeo title={`This page does not exist! | ${config.siteName}`} />
       <PageNotFound />
     </>
   );
