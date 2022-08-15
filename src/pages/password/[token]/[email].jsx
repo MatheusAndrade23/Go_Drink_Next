@@ -1,26 +1,21 @@
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
+
+import { useRouter } from 'next/router';
 
 import { ResetPassword } from '../../../templates/ResetPassword';
 
 import config from '../../../config';
 
-export default function ResetPasswordPage({ email, token }) {
+export default function ResetPasswordPage() {
+  const { siteName } = config;
+  const router = useRouter();
+
+  const { email, token } = router.query;
+
   return (
     <>
-      <Head>
-        <title>{`Change password | ${config.siteName}`}</title>
-      </Head>
+      <NextSeo title={`Change password | ${siteName}`} />
       <ResetPassword email={email} token={token} />
     </>
   );
 }
-
-export const getServerSideProps = async ({ params }) => {
-  const { email, token } = params;
-  return {
-    props: {
-      email,
-      token,
-    },
-  };
-};
