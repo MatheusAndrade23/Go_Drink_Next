@@ -17,7 +17,11 @@ const MyApp = ({ Component, pageProps }) => {
         <Component {...pageProps} />
         <Footer />
       </AuthProvider>
-      <ToastContainer autoClose={3000} pauseOnHover={false} />
+      <ToastContainer
+        autoClose={3000}
+        pauseOnHover={false}
+        style={{ width: 'max-content' }}
+      />
     </ThemeProvider>
   );
 };

@@ -12,14 +12,14 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({ authenticated: false });
   const [loadingControl, setLoadingControl] = useState(true);
   const [authLoading, setAuthLoading] = useState(false);
-  const [language, setLanguage] = useState('enMessage');
+  const language = 'enMessage';
 
   const emailRegex =
     /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi;
 
   useEffect(() => {
-    const recoveredToken = localStorage.getItem('token');
-    const recoveredUser = localStorage.getItem('user');
+    const recoveredToken = localStorage.getItem('@go-drink/token');
+    const recoveredUser = localStorage.getItem('@go-drink/user');
 
     if (recoveredUser && recoveredToken) {
       api.defaults.headers.Authorization = `Bearer ${recoveredToken}`;
@@ -50,12 +50,12 @@ export const AuthProvider = ({ children }) => {
 
       api.defaults.headers.Authorization = `Bearer ${token}`;
 
-      localStorage.setItem(
-        'user',
-        JSON.stringify({ ...loggedUser, authenticated: true }),
-      );
-      localStorage.setItem('token', token);
-      setUser({ ...loggedUser, authenticated: true });
+      const newUser = { ...loggedUser, authenticated: true };
+
+      localStorage.setItem('@go-drink/user', JSON.stringify(newUser));
+      localStorage.setItem('@go-drink/token', token);
+
+      setUser(newUser);
       setAuthLoading(false);
       window.location.href = '/';
     } catch (error) {
@@ -63,9 +63,9 @@ export const AuthProvider = ({ children }) => {
       const err = error.response.data;
       if (!err) {
         toast.error('Something went wrong, try again later!');
-      } else {
-        toast.error(err[language]);
+        return;
       }
+      toast.error(err[language]);
     }
   };
 
@@ -85,11 +85,12 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       setAuthLoading(false);
       const err = error.response.data;
+
       if (!err) {
         toast.error('Something went wrong, try again later!');
-      } else {
-        toast.error(err[language]);
+        return;
       }
+      toast.error(err[language]);
     }
   };
 
@@ -106,32 +107,19 @@ export const AuthProvider = ({ children }) => {
       toast.warning('Please log in before putting the drink in favorites!');
       return;
     }
-
     setAuthLoading(true);
 
     try {
-      await api.patch(`/drink/favorites/${user._id}`, {
+      const response = await api.patch(`/drink/favorites/${user._id}`, {
         drink,
         drinkId: id,
       });
 
-      const response = await api.get(`/drink/favorites/${user._id}`);
-      const newFavorites = response.data.user.favorites;
-      const newFavoritesInfo = response.data.user.favoritesInfo;
+      const { favorites, favoritesInfo } = response.data.user;
+      const newUser = { ...user, favorites, favoritesInfo };
 
-      localStorage.setItem(
-        'user',
-        JSON.stringify({
-          ...user,
-          favorites: newFavorites,
-          favoritesInfo: newFavoritesInfo,
-        }),
-      );
-      setUser({
-        ...user,
-        favorites: newFavorites,
-        favoritesInfo: newFavoritesInfo,
-      });
+      localStorage.setItem('@go-drink/user', JSON.stringify(newUser));
+      setUser(newUser);
       setAuthLoading(false);
 
       if (isFavorite) {
@@ -145,9 +133,9 @@ export const AuthProvider = ({ children }) => {
       const err = error.response.data;
       if (!err) {
         toast.error('Something went wrong, try again later!');
-      } else {
-        toast.error(err[language]);
+        return;
       }
+      toast.error(err[language]);
     }
   };
 
@@ -163,9 +151,9 @@ export const AuthProvider = ({ children }) => {
       const err = error.response.data;
       if (!err) {
         toast.error('Something went wrong, try again later!');
-      } else {
-        toast.error(err[language]);
+        return;
       }
+      toast.error(err[language]);
     }
   };
 
@@ -181,9 +169,9 @@ export const AuthProvider = ({ children }) => {
       const err = error.response.data;
       if (!err) {
         toast.error('Something went wrong, try again later!');
-      } else {
-        toast.error(err[language]);
+        return;
       }
+      toast.error(err[language]);
     }
   };
 

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const Error = styled.main`
   ${({ theme }) => css`
     width: 100%;
-    min-height: 80vh;
+    min-height: 84vh;
     background-color: ${theme.colors.fourthColor};
     display: flex;
     flex-direction: column;

@@ -6,7 +6,7 @@ import { Header } from '../Header';
 
 export const ErrorComponent = ({ code, message }) => {
   return (
-    <main>
+    <>
       <Header />
       <Styled.Error>
         {code ? (
@@ -22,6 +22,6 @@ export const ErrorComponent = ({ code, message }) => {
           </Heading>
         )}
       </Styled.Error>
-    </main>
+    </>
   );
 };

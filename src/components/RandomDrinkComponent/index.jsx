@@ -9,7 +9,7 @@ import { Heading } from '../Heading';
 import { Loading } from '../Loading';
 
 export const RandomDrinkComponent = () => {
-  const [drink, setDrink] = useState([]);
+  const [drink, setDrink] = useState({});
   const [error, setError] = useState(false);
   const [loadingControl, setLoadingControl] = useState(true);
 
@@ -20,7 +20,6 @@ export const RandomDrinkComponent = () => {
         setDrink(resp.data.drinks[0]);
         setLoadingControl(false);
       } catch (error) {
-        console.log(error);
         setError(true);
         setLoadingControl(false);
       }
@@ -46,8 +45,8 @@ export const RandomDrinkComponent = () => {
         </Styled.Drink>
       ) : (
         <Styled.Drink>
-          <Heading as="h5" size="small">
-            {t('error500message')}
+          <Heading as="h6" size="small">
+            Server Error
           </Heading>
         </Styled.Drink>
       )}

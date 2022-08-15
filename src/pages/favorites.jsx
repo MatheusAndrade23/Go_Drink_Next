@@ -41,7 +41,7 @@ export default function MyFavorites() {
       <Head>
         <title>{`My Favorites | ${config.siteName}`}</title>
       </Head>
-      <Favorites drinks={favoritesInfo} />
+      <Favorites />
     </>
   );
 }

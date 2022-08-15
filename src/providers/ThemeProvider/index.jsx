@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 
-import { ThemeProvider as ThemeStyledProvider } from 'styled-components';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { GlobalStyles } from '../../styles/global-styles';
 
@@ -13,25 +13,25 @@ export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
-    const recoveredTheme = localStorage.getItem('theme');
+    const recoveredTheme = localStorage.getItem('@go-drink/theme');
 
     if (recoveredTheme) {
       setTheme(recoveredTheme);
     }
   }, []);
 
-  const themeSwitcher = () => {
+  const changeTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
+    localStorage.setItem('@go-drink/theme', newTheme);
   };
 
   return (
-    <ThemeStyledProvider theme={theme === 'dark' ? DarkTheme : LightTheme}>
-      <ThemeSwitcherContext.Provider value={{ themeSwitcher, theme }}>
+    <StyledThemeProvider theme={theme === 'dark' ? DarkTheme : LightTheme}>
+      <ThemeSwitcherContext.Provider value={{ changeTheme, theme }}>
         {children}
       </ThemeSwitcherContext.Provider>
       <GlobalStyles />
-    </ThemeStyledProvider>
+    </StyledThemeProvider>
   );
 };
