@@ -57,6 +57,8 @@ export const AuthProvider = ({ children }) => {
 
       setUser(newUser);
       setAuthLoading(false);
+      toast.success('Logged successfully!');
+      toast.success('Redirecting..');
       window.location.href = '/';
     } catch (error) {
       setAuthLoading(false);
