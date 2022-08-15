@@ -1,35 +1,23 @@
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 
-import Head from 'next/head';
-
 import { db } from '../services/api';
 
+import { Header } from '../components/Header';
 import { AllDrinks } from '../templates/AllDrinks';
 import { ErrorComponent } from '../components/ErrorComponent';
 
 import config from '../config';
 
-export default function AllDrinksTemplate({ drinks }) {
-  const url = config.defaultImageUrl;
+export default function AllDrinksPage({ drinks }) {
+  const { defaultImageUrl: url, pageUrl, siteName, description } = config;
+  const title = `All Drinks | ${siteName}`;
   const router = useRouter();
 
-  const title = !drinks
-    ? `Server Error | ${config.siteName}`
-    : `All Drinks | ${config.siteName}`;
-
-  if (!drinks) {
+  if (!drinks === null) {
     return (
       <>
-        <NextSeo
-          title={title}
-          description={`${title} - ${config.description}`}
-          canonical={config.pageUrl + router.asPath}
-          openGraph={{
-            url,
-            title,
-          }}
-        />
+        <NextSeo title={`Server Error | ${siteName}`} />
         <ErrorComponent message="Server Error" />
       </>
     );
@@ -39,13 +27,14 @@ export default function AllDrinksTemplate({ drinks }) {
     <>
       <NextSeo
         title={title}
-        description={`All Drinks - ${config.description}`}
-        canonical={config.pageUrl + router.asPath}
+        description={`All Drinks - ${description}`}
+        canonical={pageUrl + router.asPath}
         openGraph={{
           url,
           title,
         }}
       />
+      <Header />
       <AllDrinks drinks={drinks} />
     </>
   );
@@ -64,7 +53,7 @@ export const getStaticProps = async () => {
 
     drinks = [...alcoholic, ...non_alcoholic, ...optional_alcohol];
   } catch (err) {
-    drinks = undefined;
+    drinks = null;
   }
   return {
     props: {
