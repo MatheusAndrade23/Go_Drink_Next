@@ -1,33 +1,23 @@
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 
-import Head from 'next/head';
-
 import { db } from '../../services/api';
 
 import { Search } from '../../templates/Search';
+import { Header } from '../../components/Header';
 import { ErrorComponent } from '../../components/ErrorComponent';
 
 import config from '../../config';
 
 export default function SearchPage({ drinks, search }) {
-  const url = config.defaultImageUrl;
+  const { defaultImageUrl: url, pageUrl, siteName, description } = config;
   const router = useRouter();
-  const title = `Search: "${search}" | ${config.siteName}`;
+  const title = `Search: "${search}" | ${siteName}`;
 
-  if (drinks === false) {
-    const title = `Server Error | ${config.siteName}`;
+  if (drinks === undefined) {
     return (
       <>
-        <NextSeo
-          title={title}
-          description={`Server Error - ${config.description}`}
-          canonical={config.pageUrl + router.asPath}
-          openGraph={{
-            url,
-            title,
-          }}
-        />
+        <NextSeo title={`Server Error | ${siteName}`} />
         <ErrorComponent message="Server Error" />
       </>
     );
@@ -36,15 +26,8 @@ export default function SearchPage({ drinks, search }) {
   if (drinks === null) {
     return (
       <>
-        <NextSeo
-          title={title}
-          description={`${title} - ${config.description}`}
-          canonical={config.pageUrl + router.asPath}
-          openGraph={{
-            url,
-            title,
-          }}
-        />
+        <NextSeo title={title} />
+        <Header search={search} />
         <ErrorComponent message={`No results for your search: "${search}"`} />
       </>
     );
@@ -54,13 +37,14 @@ export default function SearchPage({ drinks, search }) {
     <>
       <NextSeo
         title={title}
-        description={`${title} - ${config.description}`}
-        canonical={config.pageUrl + router.asPath}
+        description={`${title} - ${description}`}
+        canonical={pageUrl + router.asPath}
         openGraph={{
           url,
           title,
         }}
       />
+      <Header search={search} />
       <Search drinks={drinks} search={search} />
     </>
   );
@@ -77,7 +61,7 @@ export const getServerSideProps = async ({ params }) => {
       drinks = null;
     }
   } catch (err) {
-    drinks = false;
+    drinks = undefined;
   }
 
   return {
