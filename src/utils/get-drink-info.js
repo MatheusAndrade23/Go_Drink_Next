@@ -1,4 +1,4 @@
-export const IngredientsArray = (drink) => {
+export const GetDrinkInfo = (drink) => {
   const ingredients = [];
   const measures = [];
 

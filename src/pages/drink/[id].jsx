@@ -1,33 +1,25 @@
 import { NextSeo } from 'next-seo';
 
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import { db } from '../../services/api';
 import { Drink } from '../../templates/Drink';
+import { Header } from '../../components/Header';
+import { ReturnButton } from '../../components/ReturnButton';
 import { ErrorComponent } from '../../components/ErrorComponent';
-import { IngredientsArray } from '../../utils/ingredients-array';
+
+import { GetDrinkInfo } from '../../utils/get-drink-info';
 
 import config from '../../config';
 
-export default function DrinkPage({ drink, ingredients }) {
-  const url = drink.strDrinkThumb;
+export default function DrinkPage({ drink, info }) {
+  const { strDrinkThumb: url } = drink;
   const router = useRouter();
-  const title = `${drink.strDrink} | ${config.siteName}`;
 
-  if (drink === false) {
-    const title = `Server Error | ${config.siteName} `;
+  if (drink === null) {
     return (
       <>
-        <NextSeo
-          title={title}
-          description={`${title} - ${config.description}`}
-          canonical={config.pageUrl + router.asPath}
-          openGraph={{
-            url,
-            title,
-          }}
-        />
+        <NextSeo title={`Server Error | ${config.siteName} `} />
         <ErrorComponent message="Something went wrong, try again later!" />
       </>
     );
@@ -36,15 +28,17 @@ export default function DrinkPage({ drink, ingredients }) {
   return (
     <>
       <NextSeo
-        title={title}
-        description={`${title} - ${config.description}`}
+        title={`${drink.strDrink} | ${config.siteName}`}
+        description={`${drink.strDrink} - ${config.description}`}
         canonical={config.pageUrl + router.asPath}
         openGraph={{
           url,
-          title,
+          title: `${drink.strDrink} | ${config.siteName}`,
         }}
       />
-      <Drink drink={drink} ingredients={ingredients} />
+      <Header />
+      <ReturnButton />
+      <Drink drink={drink} info={info} />
     </>
   );
 }
@@ -52,24 +46,22 @@ export default function DrinkPage({ drink, ingredients }) {
 export const getServerSideProps = async ({ params }) => {
   const { id } = params;
 
-  let ingredients;
   let drink;
+  let info;
 
   try {
     const resp = await db.get(`/api/json/v1/1/lookup.php?i=${id}`);
     try {
-      const drinkInfo = resp.data.drinks[0];
-      const ingredientsInfo = await IngredientsArray(drinkInfo);
-      ingredients = ingredientsInfo;
-      drink = drinkInfo;
+      drink = resp.data.drinks[0];
+      info = await GetDrinkInfo(drink);
     } catch (error) {
-      drink = null;
+      drink = undefined;
     }
   } catch (error) {
-    drink = false;
+    drink = null;
   }
 
-  if (drink === null) {
+  if (drink === undefined) {
     return {
       notFound: true,
     };
@@ -78,7 +70,7 @@ export const getServerSideProps = async ({ params }) => {
   return {
     props: {
       drink,
-      ingredients,
+      info,
     },
   };
 };
