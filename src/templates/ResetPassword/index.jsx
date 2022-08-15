@@ -12,19 +12,21 @@ import { InputComponent } from '../../components/InputComponent';
 import { ButtonComponent } from '../../components/ButtonComponent';
 import { TextComponent } from '../../components/TextComponent';
 
-import config from '../../config';
-
 export const ResetPassword = ({ token, email }) => {
   const { resetPassword } = useContext(AuthContext);
 
-  const [showPassword, setShowPassword] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
 
-  const handleGetInfo = (e) => {
+  const handleChangePasswordVisibility = (e) => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleGetPassword = (e) => {
     setPassword(e.target.value);
   };
 
-  const setNewPassword = () => {
+  const handleResetPassword = () => {
     resetPassword(email, token, password);
   };
 
@@ -34,20 +36,20 @@ export const ResetPassword = ({ token, email }) => {
         <Heading size="medium" as="h4">
           GODRINK
         </Heading>
-        <TextComponent>Please enter your new password below.</TextComponent>
+        <TextComponent>Please type your new password below.</TextComponent>
         <Styled.PasswordContainer>
           <InputComponent
             text="Password"
             placeholder="Type your new Password here..."
             name="password"
             type={showPassword ? 'text' : 'password'}
-            handleChange={handleGetInfo}
+            handleChange={handleGetPassword}
           />
-          <button onClick={() => setShowPassword(!showPassword)}>
+          <button onClick={handleChangePasswordVisibility}>
             {showPassword ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
           </button>
         </Styled.PasswordContainer>
-        <ButtonComponent bold={false} handleSubmit={setNewPassword}>
+        <ButtonComponent bold={false} handleSubmit={handleResetPassword}>
           Change password
         </ButtonComponent>
       </Styled.Login>

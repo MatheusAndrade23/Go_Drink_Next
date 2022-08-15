@@ -13,15 +13,13 @@ import { TextComponent } from '../../components/TextComponent';
 import { InputComponent } from '../../components/InputComponent';
 import { ButtonComponent } from '../../components/ButtonComponent';
 
-import config from '../../config';
-
 export const Auth = ({ action }) => {
   const { user, login, logout, register } = useContext(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
   const [userInfo, setUserInfo] = useState({ email: '', password: '' });
 
-  const handleGetInfo = (e) => {
+  const handleGetUserInfo = (e) => {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
 
@@ -52,7 +50,7 @@ export const Auth = ({ action }) => {
           placeholder="Type your email here..."
           name="email"
           type="email"
-          handleChange={handleGetInfo}
+          handleChange={handleGetUserInfo}
         />
         <Styled.PasswordContainer>
           <InputComponent
@@ -60,7 +58,7 @@ export const Auth = ({ action }) => {
             placeholder="Type your password here..."
             name="password"
             type={showPassword ? 'text' : 'password'}
-            handleChange={handleGetInfo}
+            handleChange={handleGetUserInfo}
           />
           <button onClick={handleChangePasswordVisibility}>
             {showPassword ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}

@@ -17,74 +17,66 @@ import config from '../../config';
 
 export const Drink = ({ drink, ingredients }) => {
   const { user, updateFavorites } = useContext(AuthContext);
-  const id = drink.idDrink;
+  const {
+    idDrink: id,
+    strDrink,
+    strCategory,
+    strGlass,
+    strAlcoholic,
+    strDrinkThumb,
+    strInstructions,
+  } = drink;
 
-  const [isFavorite, setIsFavorite] = useState(false);
+  const isFavorite = user.favorites.includes(id) ? true : false;
 
-  const handleFavorite = async () => {
-    await updateFavorites(id, drink, isFavorite);
+  const handleUpdateFavorites = async () => {
+    updateFavorites(id, drink, isFavorite);
   };
 
-  useEffect(() => {
-    const { favorites, authenticated } = user;
-    if (!authenticated) {
-      return;
-    }
-    if (favorites.includes(id)) {
-      setIsFavorite(true);
-    } else {
-      setIsFavorite(false);
-    }
-  }, [id, user]);
-
   return (
-    <main>
+    <>
       <Header />
       <Styled.Drink>
-        <Styled.DrinkImg src={drink.strDrinkThumb} alt={drink.strDrink} />
+        <Styled.DrinkImg src={strDrinkThumb} alt={drink.strDrink} />
         <Styled.Info>
-          <Styled.Favorite onClick={handleFavorite}>
+          <Styled.Favorite onClick={handleUpdateFavorites}>
             {isFavorite ? (
               <AiFillStar title="Remove from Favorites" />
             ) : (
               <AiOutlineStar title="Add to Favorites" />
             )}
           </Styled.Favorite>
-          <Heading>{drink.strDrink}</Heading>
+          <Heading>{strDrink}</Heading>
           <SmallContainer disposition="row">
-            <span>{drink.strCategory}</span>
-            <span>{drink.strGlass}</span>
-            <span>{drink.strAlcoholic}</span>
+            <span>{strCategory}</span>
+            <span>{strGlass}</span>
+            <span>{strAlcoholic}</span>
           </SmallContainer>
           <SmallContainer disposition="row">
             <Styled.List>
-              <>
-                <Heading size="small" as="h6">
-                  Ingredients:
-                </Heading>
+              <table>
+                <tr>Ingredients:</tr>
                 {ingredients.ingredients.map((ingredient, index) => (
-                  <li key={`${ingredient}-${index}`}>{ingredient}</li>
+                  <tr key={`${ingredient}-${index}`}>{ingredient}</tr>
                 ))}
-              </>
+              </table>
             </Styled.List>
             <Styled.List>
-              <>
-                <Heading size="small" as="h6">
-                  Measures:
-                </Heading>
+              <table>
+                <tr>Measures:</tr>
                 {ingredients.measures.map((measure, index) => (
-                  <li key={`${measure}-${index}`}>{measure}</li>
+                  <tr key={`${measure}-${index}`}>{measure}</tr>
                 ))}
-              </>
+              </table>
             </Styled.List>
           </SmallContainer>
           <Heading as="h6" size="small">
             Instructions:
           </Heading>
-          <Styled.Instructions>{drink.strInstructions}</Styled.Instructions>
+          <Styled.Instructions>{strInstructions}</Styled.Instructions>
         </Styled.Info>
       </Styled.Drink>
       <ReturnButton />
-    </main>
+    </>
   );
 };

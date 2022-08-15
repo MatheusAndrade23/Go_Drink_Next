@@ -4,7 +4,7 @@ export const Container = styled.section`
   ${({ theme }) => css`
     width: 100%;
     background-color: ${theme.colors.fourthColor};
-    min-height: 100vh;
+    min-height: 84vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,16 +18,5 @@ export const Container = styled.section`
     & button {
       width: 160px;
     }
-  `}
-`;
-
-export const DrinksContainer = styled.div`
-  ${({ theme }) => css`
-    padding: ${theme.spacings.small};
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    min-height: 100vh;
   `}
 `;

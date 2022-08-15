@@ -3,25 +3,19 @@ import * as Styled from '../Kinds/styles';
 import { Header } from '../../components/Header';
 import { Heading } from '../../components/Heading';
 import { ReturnButton } from '../../components/ReturnButton';
-import { DrinkComponent } from '../../components/DrinkComponent';
-
-import config from '../../config';
+import { DrinksContainer } from '../../components/DrinksContainer';
 
 export const AllDrinks = ({ drinks }) => {
   return (
-    <main>
+    <>
       <Header />
       <Styled.Container>
         <Heading size="small" as="h4">
           All Drinks:
         </Heading>
-        <Styled.DrinksContainer>
-          {drinks.map((drink) => (
-            <DrinkComponent drink={drink} key={drink.idDrink} />
-          ))}
-        </Styled.DrinksContainer>
+        <DrinksContainer drinks={drinks} />
       </Styled.Container>
       <ReturnButton />
-    </main>
+    </>
   );
 };

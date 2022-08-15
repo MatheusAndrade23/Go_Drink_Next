@@ -10,19 +10,17 @@ import { TextComponent } from '../../components/TextComponent';
 import { InputComponent } from '../../components/InputComponent';
 import { ButtonComponent } from '../../components/ButtonComponent';
 
-import config from '../../config';
-
 export const ForgotPassword = () => {
   const { forgotPassword } = useContext(AuthContext);
 
-  const [email, setEmail] = useState('');
+  const [emailAddress, setEmailAddress] = useState('');
 
-  const handleGetInfo = (e) => {
-    setEmail(e.target.value);
+  const handleGetEmailAddress = (e) => {
+    setEmailAddress(e.target.value);
   };
 
-  const sendMail = () => {
-    forgotPassword(email);
+  const handleSendEmail = () => {
+    forgotPassword(emailAddress);
   };
 
   return (
@@ -39,9 +37,9 @@ export const ForgotPassword = () => {
           placeholder="Type your email here..."
           name="email"
           type="email"
-          handleChange={handleGetInfo}
+          handleChange={handleGetEmailAddress}
         />
-        <ButtonComponent bold={false} handleSubmit={sendMail}>
+        <ButtonComponent bold={false} handleSubmit={handleSendEmail}>
           Send Email
         </ButtonComponent>
       </Styled.Login>

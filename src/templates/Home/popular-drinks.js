@@ -1,4 +1,4 @@
-export default {
+const popularDrinks = {
   drinks: [
     {
       idDrink: '11000',
@@ -465,3 +465,5 @@ export default {
     },
   ],
 };
+
+export default popularDrinks;

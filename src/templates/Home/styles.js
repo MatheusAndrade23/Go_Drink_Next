@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { DrinksContainer } from '../../components/DrinksContainer/styles';
 
 export const HomeContainer = styled.section`
   ${({ theme }) => css`
@@ -38,9 +39,7 @@ export const Init = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-bottom: ${theme.spacings.medium};
     align-items: center;
-    border-bottom: 2px solid ${theme.colors.secondaryColor};
 
     p {
       font-size: ${theme.fonts.sizes.small};
@@ -66,33 +65,25 @@ export const Init = styled.div`
 
 export const SecTitle = styled.h2`
   ${({ theme }) => css`
+    width: 100%;
+    text-align: center;
     color: ${theme.colors.primaryColor};
-    width: max-content;
     font-size: ${theme.fonts.sizes.medium};
     font-family: ${theme.fonts.family.secondary};
-    margin-top: ${theme.spacings.medium};
+    padding-top: ${theme.spacings.large};
+    border-top: 2px solid ${theme.colors.secondaryColor};
   `}
 `;
 
 export const Title = styled.h1`
   ${({ theme }) => css`
+  width: 100%;
+    text-align: center;
     color: ${theme.colors.primaryColor};
-    width: max-content;
     font-size: ${theme.fonts.sizes.xlarge};
     font-family: ${theme.fonts.family.secondary};
     margin-top: ${theme.spacings.small};
-    width: 100%;
-    text-align: center;
   `}
 `;
 
-export const RandomDrinks = styled.section`
-  ${({ theme }) => css`
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: ${theme.spacings.medium} 0;
-  `}
-`;
+export const RandomDrinks = styled(DrinksContainer)``;

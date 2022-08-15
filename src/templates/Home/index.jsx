@@ -9,6 +9,7 @@ import { Header } from '../../components/Header';
 import { TextComponent } from '../../components/TextComponent';
 import { SmallContainer } from '../../components/SmallContainer';
 import { DrinkComponent } from '../../components/DrinkComponent';
+import { DrinksContainer } from '../../components/DrinksContainer';
 import { RandomDrinkComponent } from '../../components/RandomDrinkComponent';
 
 import config from '../../config';
@@ -16,7 +17,7 @@ import popularDrinks from './popular-drinks.js';
 
 export const Home = (props) => {
   return (
-    <main>
+    <>
       <Header />
       <Styled.HomeContainer>
         <Styled.Init>
@@ -51,11 +52,7 @@ export const Home = (props) => {
           />
         </Styled.Init>
         <Styled.SecTitle>Popular drinks:</Styled.SecTitle>
-        <Styled.RandomDrinks>
-          {popularDrinks.drinks.map((drink) => (
-            <DrinkComponent drink={drink} key={drink.idDrink} />
-          ))}
-        </Styled.RandomDrinks>
+        <DrinksContainer drinks={popularDrinks.drinks} />
         <Styled.SecTitle>Random Drinks:</Styled.SecTitle>
         <Styled.RandomDrinks>
           <RandomDrinkComponent />
@@ -66,12 +63,8 @@ export const Home = (props) => {
           <RandomDrinkComponent />
           <RandomDrinkComponent />
           <RandomDrinkComponent />
-          <RandomDrinkComponent />
-          <RandomDrinkComponent />
-          <RandomDrinkComponent />
-          <RandomDrinkComponent />
         </Styled.RandomDrinks>
       </Styled.HomeContainer>
-    </main>
+    </>
   );
 };

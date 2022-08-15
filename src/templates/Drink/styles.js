@@ -8,7 +8,13 @@ export const List = styled.ul`
     flex-direction: column;
     justify-content: space-between;
 
-    & li {
+    & tr:first-child{
+      color: ${theme.colors.thirdColor};
+      font-size: ${theme.fonts.sizes.medium};
+      font-weight: bold;
+    }
+
+    & tr {
       color: ${theme.colors.primaryColor};
       margin-bottom: 5px;
     }
