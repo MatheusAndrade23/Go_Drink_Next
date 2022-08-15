@@ -9,6 +9,7 @@ import { AuthContext } from '../../providers/AuthProvider/index';
 import { toast } from 'react-toastify';
 
 import { Heading } from '../../components/Heading';
+import { ReturnButton } from '../../components/ReturnButton';
 import { SmallContainer } from '../../components/SmallContainer';
 
 import config from '../../config';
@@ -72,6 +73,7 @@ export const Drink = ({ drink, info }) => {
         </Heading>
         <Styled.Instructions>{strInstructions}</Styled.Instructions>
       </Styled.Info>
+      <ReturnButton />
     </Styled.Drink>
   );
 };

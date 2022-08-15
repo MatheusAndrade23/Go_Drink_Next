@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 import { db } from '../../services/api';
 import { Drink } from '../../templates/Drink';
 import { Header } from '../../components/Header';
-import { ReturnButton } from '../../components/ReturnButton';
 import { ErrorComponent } from '../../components/ErrorComponent';
 
 import { GetDrinkInfo } from '../../utils/get-drink-info';
@@ -13,13 +12,15 @@ import { GetDrinkInfo } from '../../utils/get-drink-info';
 import config from '../../config';
 
 export default function DrinkPage({ drink, info }) {
-  const { strDrinkThumb: url } = drink;
+  const { siteName, description, pageUrl } = config;
+  const { strDrinkThumb: url, strDrink } = drink;
+  const title = `${strDrink} | ${siteName}`;
   const router = useRouter();
 
   if (drink === null) {
     return (
       <>
-        <NextSeo title={`Server Error | ${config.siteName} `} />
+        <NextSeo title={`Server Error | ${siteName} `} />
         <ErrorComponent message="Something went wrong, try again later!" />
       </>
     );
@@ -28,16 +29,15 @@ export default function DrinkPage({ drink, info }) {
   return (
     <>
       <NextSeo
-        title={`${drink.strDrink} | ${config.siteName}`}
-        description={`${drink.strDrink} - ${config.description}`}
-        canonical={config.pageUrl + router.asPath}
+        title={title}
+        description={`${strDrink} - ${description}`}
+        canonical={pageUrl + router.asPath}
         openGraph={{
           url,
-          title: `${drink.strDrink} | ${config.siteName}`,
+          title,
         }}
       />
       <Header />
-      <ReturnButton />
       <Drink drink={drink} info={info} />
     </>
   );
