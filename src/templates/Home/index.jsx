@@ -26,7 +26,7 @@ export const Home = (props) => {
             alt="Drink image"
           />
           <SmallContainer>
-            <Styled.Title>Welcome to GODRINK</Styled.Title>
+            <Styled.Title>Welcome to Go Drink</Styled.Title>
             <TextComponent size="medium">
               An open source website with over 600 different cocktails recipes
               from around the world.

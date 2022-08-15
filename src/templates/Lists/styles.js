@@ -24,11 +24,10 @@ export const KindsContainer = styled.section`
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    padding: ${theme.spacings.small};
     width: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    min-height: 100vh;
+    padding: 20px 0 30px 0;
   `}
 `;
