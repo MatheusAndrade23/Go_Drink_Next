@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.main`
   ${({ theme }) => css`
     background-color: ${theme.colors.fourthColor};
     min-height: 100vh;
