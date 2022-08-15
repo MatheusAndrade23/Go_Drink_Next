@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { DrinksContainer } from '../../components/DrinksContainer/styles';
 
-export const HomeContainer = styled.section`
+export const HomeContainer = styled.main`
   ${({ theme }) => css`
     width: 100%;
     background-color: ${theme.colors.fourthColor};
