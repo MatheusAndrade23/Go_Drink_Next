@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Error = styled.main`
+export const Error = styled.div`
   ${({ theme }) => css`
     width: 100%;
     min-height: 84vh;

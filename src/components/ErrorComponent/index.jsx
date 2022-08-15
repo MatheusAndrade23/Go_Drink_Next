@@ -8,20 +8,22 @@ export const ErrorComponent = ({ code, message }) => {
   return (
     <>
       <Header />
-      <Styled.Error>
-        {code ? (
-          <>
+      <main>
+        <Styled.Error>
+          {code ? (
+            <>
+              <Heading as="h4" size="medium">
+                {`Error ${code}`}
+              </Heading>
+              <TextComponent>{message}</TextComponent>
+            </>
+          ) : (
             <Heading as="h4" size="medium">
-              {`Error ${code}`}
+              {message}
             </Heading>
-            <TextComponent>{message}</TextComponent>
-          </>
-        ) : (
-          <Heading as="h4" size="medium">
-            {message}
-          </Heading>
-        )}
-      </Styled.Error>
+          )}
+        </Styled.Error>
+      </main>
     </>
   );
 };
