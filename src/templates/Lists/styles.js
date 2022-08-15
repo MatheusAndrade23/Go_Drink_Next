@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const KindsContainer = styled.section`
+export const KindsContainer = styled.main`
   ${({ theme }) => css`
     width: 100%;
     background-color: ${theme.colors.fourthColor};

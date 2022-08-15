@@ -5,29 +5,22 @@ import { useRouter } from 'next/router';
 
 import { db } from '../../services/api';
 import { Lists } from '../../templates/Lists';
+import { Header } from '../../../components/Header';
 import { ErrorComponent } from '../../components/ErrorComponent';
+
 import { GetThumbImg } from '../../utils/get-thumb-img';
 
 import config from '../../config';
 
 export default function ListPage({ kinds, kind, type, images, name }) {
-  const url = config.defaultImageUrl;
+  const { defaultImageUrl: url, pageUrl, siteName, description } = config;
+  const title = `${name} | ${siteName}`;
   const router = useRouter();
-  const title = `${name} | ${config.siteName}`;
 
-  if (kinds === false) {
-    const title = `Server Error | ${config.siteName}`;
+  if (kinds === null) {
     return (
       <>
-        <NextSeo
-          title={title}
-          description={`${title} - ${config.description}`}
-          canonical={config.pageUrl + router.asPath}
-          openGraph={{
-            url,
-            title,
-          }}
-        />
+        <NextSeo title={`Server Error | ${siteName}`} />
         <ErrorComponent message="Something went wrong, try again later!" />
       </>
     );
@@ -37,13 +30,14 @@ export default function ListPage({ kinds, kind, type, images, name }) {
     <>
       <NextSeo
         title={title}
-        description={`${title} - ${config.description}`}
-        canonical={config.pageUrl + router.asPath}
+        description={`${title} - ${description}`}
+        canonical={pageUrl + router.asPath}
         openGraph={{
           url,
           title,
         }}
       />
+      <Header />
       <Lists
         kinds={kinds}
         kind={kind}
@@ -102,13 +96,13 @@ export const getStaticProps = async ({ params }) => {
       const drinks = resp.data.drinks;
       kinds = drinks;
     } catch (error) {
-      kinds = null;
+      kinds = undefined;
     }
   } catch (error) {
-    kinds = false;
+    kinds = null;
   }
 
-  if (kinds === null) {
+  if (kinds === undefined) {
     return {
       notFound: true,
     };
