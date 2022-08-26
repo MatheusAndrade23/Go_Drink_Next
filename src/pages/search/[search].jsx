@@ -27,7 +27,6 @@ export default function SearchPage({ drinks, search }) {
     return (
       <>
         <NextSeo title={title} />
-        <Header search={search} />
         <ErrorComponent message={`No results for your search: "${search}"`} />
       </>
     );
