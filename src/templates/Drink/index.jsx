@@ -27,7 +27,7 @@ export const Drink = ({ drink, info }) => {
     strInstructions,
   } = drink;
 
-  console.log(user.favorites);
+  console.log(user);
 
   const isFavorite = user.favorites.includes(id);
 
