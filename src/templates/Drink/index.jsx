@@ -27,7 +27,9 @@ export const Drink = ({ drink, info }) => {
     strInstructions,
   } = drink;
 
-  const isFavorite = true;
+  console.log(user.favorites);
+
+  const isFavorite = user.favorites.includes(id);
 
   const handleUpdateFavorites = async () => {
     updateFavorites(id, drink, isFavorite);
