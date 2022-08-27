@@ -9,7 +9,11 @@ import { toast } from 'react-toastify';
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({ authenticated: false });
+  const [user, setUser] = useState({
+    authenticated: false,
+    favorites: [],
+    favoritesInfo: [],
+  });
   const [loadingControl, setLoadingControl] = useState(true);
   const [authLoading, setAuthLoading] = useState(false);
   const language = 'enMessage';
