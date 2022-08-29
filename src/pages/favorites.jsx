@@ -6,7 +6,7 @@ import { AuthContext } from '../providers/AuthProvider';
 import { api } from '../services/api';
 
 import { Favorites } from '../templates/Favorites';
-import { Header } from '../components/Header/styles';
+import { Header } from '../components/Header';
 import { ErrorComponent } from '../components/ErrorComponent';
 
 import config from '../config';
