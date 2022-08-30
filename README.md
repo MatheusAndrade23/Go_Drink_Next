@@ -23,13 +23,21 @@
 
 <h2 id="demo">Demonstração 🎥</h2>
 
-_<h3 id="tour">Um pequeno tour pelo Projeto! 🚀</h3>_
+_<h3>Um pequeno tour pelo Projeto 🚀</h3>_
 
-<img src="./github/tour.gif" alt="GIF Tour pelo projeto">
+<img src="./github/tour.gif" alt="Tour pelo projeto GIF"/>
 
-_<h3 id="trocando">Adicionando aos favoritos! ⭐</h3>_
+_<h3>Adicionando aos favoritos ⭐</h3>_
 
-<img src="./github/favoritos.gif" alt="GIF Adicionando aos favoritos">
+<img src="./github/favorites.gif" alt="Tour pelo projeto GIF"/>
+
+_<h3>Pesquisando 🔎</h3>_
+
+<img src="./github/search.gif" alt="Tour pelo projeto GIF"/>
+
+_<h3>Autenticando 👤</h3>_
+
+<img src="./github/login.gif" alt="Tour pelo projeto GIF"/>
 
 <br>
 
